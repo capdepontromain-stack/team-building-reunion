@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://team-building-reunion.re/sitemap.xml
+Sitemap: https://teambuilding974.re/sitemap.xml
