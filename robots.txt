@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+# Bienvenue aux robots des assistants IA
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://teambuilding974.re/sitemap.xml
+# Présentation pour les IA : https://teambuilding974.re/llms.txt
