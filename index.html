@@ -116,6 +116,14 @@ form input,form select,form textarea{width:100%;padding:12px;border:2.5px solid 
 form button{margin-top:20px;width:100%;cursor:pointer}
 footer{background:var(--encre);color:#9fb0b8;text-align:center;padding:34px 20px;font-size:13.5px;border-top:3px solid var(--soleil)}
 footer a{color:var(--soleil)}
+
+.citations{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px;margin-bottom:34px}
+.citation{background:#fff;border:3px solid #132029;box-shadow:6px 6px 0 #132029;padding:22px 24px;position:relative}
+.citation::before{content:"“";position:absolute;top:-26px;left:14px;font-family:'Anton',sans-serif;font-size:64px;color:#ff6b4a}
+.citation .etoiles{color:#ffc93c;font-size:17px;letter-spacing:2px;text-shadow:0 0 1px #132029;margin-bottom:8px}
+.citation p{font-size:15px;line-height:1.65;margin:0 0 12px}
+.citation .auteur{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#0b3c49}
+.citation .auteur span{display:block;font-weight:400;text-transform:none;letter-spacing:0;color:#5a6a72;font-size:12px}
 </style>
 </head>
 <body>
@@ -263,7 +271,7 @@ footer a{color:var(--soleil)}
       <div class="stat"><div class="n">30+</div><div class="l">avis clients publics</div></div>
       <div class="stat"><div class="n">★★★★★</div><div class="l">la note la plus fréquente</div></div>
     </div>
-    <div id="citations-avis"></div>
+    <div id="citations-avis"><div class="citations"><figure class="citation"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote><p>Cela fait maintenant plus de 3 ans que nous faisons confiance à Pull Up Événements pour l'organisation de nos séminaires, team buildings et soirées d'entreprise à La Réunion. À chaque prestation c'est fous rires et cohésion. C'est un vrai plaisir de travailler avec eux. Je recommande Pullup à toutes les entreprises 974.</p></blockquote><figcaption class="auteur">Karim Eloufi <span>Avis Google · 5/5</span></figcaption></figure><figure class="citation"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote><p>Très belle journée ce samedi 4 avril 2026 qui s'est déroulée dans l'amour, la paix et la joie. Des animateurs au top qui ont bien mené les activités tout au long de cette journée. Merci à eux pour ce moment mémorable 👏</p></blockquote><figcaption class="auteur">Teddy Clain <span>Avis Google · 5/5</span></figcaption></figure><figure class="citation"><div class="etoiles" aria-label="4 sur 5">★★★★☆</div><blockquote><p>C'est la deuxième année que l'on fait appel à eux pour une journée de cohésion. Superbe équipe, dynamique et accueillante, qui mets l'ambiance tout au long de la prestation. Les jeux sont accessibles à tous. Encore bravo à vous, et on se donne rdv en 2027.</p></blockquote><figcaption class="auteur">Ambroise Raynaud <span>Avis Google · 4/5</span></figcaption></figure><figure class="citation"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote><p>Bonjour à tous vous voulez festifs, surprenant, convivial avec des animateurs de dingues et des fou rires a n'en plus finir appeler pull up événement frissons garanti 😜</p></blockquote><figcaption class="auteur">Aneline Dijoux <span>Avis Google · 5/5</span></figcaption></figure><figure class="citation"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote><p>Super et beaucoup patience vue qu'on etait 1 peu dissiper « lol ». Franchement super et merci pour votre collaboration</p></blockquote><figcaption class="auteur">Angélique Socolingom <span>Avis Google · 5/5</span></figcaption></figure><figure class="citation"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote><p>Ambiance au top 👍👍 Équipe super sympa 👏👏</p></blockquote><figcaption class="auteur">Alexandra Begue <span>Avis Google · 5/5</span></figcaption></figure></div></div>
     <p style="text-align:center"><a class="btn" href="https://g.page/r/CYZGysYZgL8iEBM" target="_blank" rel="noopener">Lire tous les avis Google</a>&nbsp;&nbsp;<a class="btn jaune" href="https://g.page/r/CYZGysYZgL8iEBM/review" target="_blank" rel="noopener">Donnez le vôtre</a></p>
   </div>
 </section>
