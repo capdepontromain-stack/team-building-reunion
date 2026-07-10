@@ -152,8 +152,41 @@ a.btn:hover::after,.btn:hover::after{left:130%}
 @keyframes flotte{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-26px) rotate(8deg)}}
 
 /* fin wow */
+
+/* ===== FINITION GRANDE MARQUE ===== */
+::selection{background:#ff6b4a;color:#fff}
+h1,h2,h3{text-wrap:balance}
+p,li,figcaption{text-wrap:pretty}
+section[id]{scroll-margin-top:86px}
+:focus-visible{outline:3px solid #ff6b4a;outline-offset:3px;border-radius:4px}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:#0b3c49;border-radius:8px;border:3px solid #fff}
+html{scrollbar-color:#0b3c49 transparent;scrollbar-width:thin}
+/* entrée de page : le héro se met en scène */
+@media (prefers-reduced-motion: no-preference){
+.hero .wrap>*:first-child>*{animation:entree .8s cubic-bezier(.2,.7,.2,1) both}
+.hero .wrap>*:first-child>*:nth-child(2){animation-delay:.12s}
+.hero .wrap>*:first-child>*:nth-child(3){animation-delay:.24s}
+.hero .wrap>*:first-child>*:nth-child(4){animation-delay:.36s}
+.hero .wrap>*:nth-child(2){animation:entree 1s cubic-bezier(.2,.7,.2,1) .3s both}
+@keyframes entree{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+}
+.marquee:hover .defile{animation-play-state:paused}
+
+/* galerie harmonisée : recadrage uniforme, sauf affiches */
+.polaroid img,.carte-photo img{aspect-ratio:4/3;object-fit:cover;object-position:center 30%}
+.polaroid img[src*="affiche"],.carte-photo img[src*="affiche"]{aspect-ratio:auto;object-fit:contain;background:#fff}
+
+h1,h2{letter-spacing:.5px}
+.sub{line-height:1.8}
+.citation{border-radius:2px}
+.telband a,.btn{letter-spacing:.5px}
+
+/* fin finition */
 </style>
 <style id="wow-css"></style>
+<style id="polish-css"></style>
 </head>
 <body>
 
