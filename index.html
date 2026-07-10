@@ -184,6 +184,30 @@ h1,h2{letter-spacing:.5px}
 .telband a,.btn{letter-spacing:.5px}
 
 /* fin finition */
+
+/* ===== PREMIUM ===== */
+.lb{position:fixed;inset:0;background:rgba(8,10,14,.93);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:26px;opacity:0;pointer-events:none;transition:opacity .3s}
+.lb.on{opacity:1;pointer-events:auto}
+.lb img{max-width:min(94vw,1100px);max-height:78vh;border-radius:8px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .lg{color:#fff;font-size:16px;margin-top:16px;text-align:center;max-width:700px}
+.lb .x{position:absolute;top:18px;right:22px;background:#ff6b4a;color:#132029;border:0;width:44px;height:44px;border-radius:50%;font-size:22px;font-weight:700;cursor:pointer}
+.lb .fl{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);color:#fff;border:0;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer}
+.lb .fl:hover{background:#ff6b4a;color:#132029}
+.lb .pr{left:16px}.lb .sv{right:16px}
+.polaroid, .carte-photo{cursor:zoom-in}
+.hauteur{position:fixed;bottom:86px;right:18px;width:46px;height:46px;border-radius:50%;background:#132029;color:#fff;border:2px solid #ff6b4a;font-size:20px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;z-index:90}
+.hauteur.on{opacity:1;pointer-events:auto}
+.ctamob{display:none}
+@media(max-width:720px){
+.ctamob{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:95;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
+.ctamob a{flex:1;text-align:center;padding:15px 8px;font-weight:800;text-decoration:none;font-size:15.5px}
+.ctamob .tel1{background:#ff6b4a;color:#132029}
+.ctamob .dev1{background:#132029;color:#fff}
+body{padding-bottom:54px}
+.hauteur{bottom:76px}
+}
+
+/* fin premium */
 </style>
 <style id="wow-css"></style>
 <style id="polish-css"></style>
@@ -484,6 +508,83 @@ document.addEventListener('click',function(e){
     var io2 = new IntersectionObserver(function(en){ en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('vu'); io2.unobserve(e.target);} }); }, {threshold:.4});
     io2.observe(el);
   });
+})();
+</script>
+
+<script id="premium-js">
+(function(){
+  /* Visionneuse */
+  var figs = Array.prototype.slice.call(document.querySelectorAll('.polaroid, .carte-photo')).filter(function(f){return f.querySelector('img')});
+  if (figs.length){
+    var lb = document.createElement('div'); lb.className='lb'; lb.setAttribute('role','dialog'); lb.setAttribute('aria-label','Photo en grand');
+    lb.innerHTML = '<button class="x" aria-label="Fermer">✕</button><button class="fl pr" aria-label="Précédente">‹</button><img alt=""><button class="fl sv" aria-label="Suivante">›</button><div class="lg"></div>';
+    document.body.appendChild(lb);
+    var im = lb.querySelector('img'), lg = lb.querySelector('.lg'), idx = 0;
+    function show(i){
+      idx = (i + figs.length) % figs.length;
+      var f = figs[idx], s = f.querySelector('img'), c = f.querySelector('figcaption');
+      im.src = s.src; im.alt = s.alt || '';
+      lg.textContent = c ? c.textContent : (s.alt || '');
+      lb.classList.add('on'); document.body.style.overflow='hidden';
+    }
+    function close(){ lb.classList.remove('on'); document.body.style.overflow=''; }
+    figs.forEach(function(f,i){ f.addEventListener('click', function(){ show(i); }); });
+    lb.querySelector('.x').addEventListener('click', close);
+    lb.querySelector('.pr').addEventListener('click', function(e){ e.stopPropagation(); show(idx-1); });
+    lb.querySelector('.sv').addEventListener('click', function(e){ e.stopPropagation(); show(idx+1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+    document.addEventListener('keydown', function(e){
+      if (!lb.classList.contains('on')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(idx-1);
+      if (e.key === 'ArrowRight') show(idx+1);
+    });
+  }
+  /* Compteurs animés */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.stat .n, .boule .n, .ballon .n, .badge49 .n').forEach(function(el){
+      var t = el.textContent;
+      var m = t.match(/^(\d+)([.,]\d+)?/);
+      if (!m) return;
+      var fin = parseFloat(m[1] + (m[2]||'').replace(',','.'));
+      var dec = m[2] ? m[2].length-1 : 0, reste = t.slice(m[0].length);
+      var io = new IntersectionObserver(function(en){
+        en.forEach(function(e){
+          if (!e.isIntersecting) return; io.unobserve(el);
+          var t0 = null;
+          function pas(ts){
+            if (!t0) t0 = ts;
+            var p = Math.min((ts-t0)/1100, 1); p = 1-Math.pow(1-p,3);
+            el.textContent = (fin*p).toFixed(dec).replace('.',',') + reste;
+            if (p < 1) requestAnimationFrame(pas);
+          }
+          requestAnimationFrame(pas);
+        });
+      }, {threshold:.6});
+      io.observe(el);
+    });
+  }
+  /* FAQ fluide */
+  document.querySelectorAll('details').forEach(function(d){
+    var s = d.querySelector('summary'), c = d.querySelector('p');
+    if (!s || !c) return;
+    s.addEventListener('click', function(e){
+      if (d.open) return; /* fermeture native */
+      e.preventDefault(); d.open = true;
+      c.style.overflow='hidden'; c.style.maxHeight='0'; c.style.transition='max-height .4s ease';
+      requestAnimationFrame(function(){ c.style.maxHeight = c.scrollHeight+'px';
+        setTimeout(function(){ c.style.maxHeight=''; c.style.overflow=''; }, 450); });
+    });
+  });
+  /* Retour en haut */
+  var bt = document.createElement('button'); bt.className='hauteur'; bt.textContent='↑'; bt.setAttribute('aria-label','Retour en haut');
+  document.body.appendChild(bt);
+  bt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  addEventListener('scroll', function(){ bt.classList.toggle('on', scrollY > 900); }, {passive:true});
+  /* Barre d'appel mobile */
+  var cb = document.createElement('div'); cb.className='ctamob';
+  cb.innerHTML = '<a class="tel1" href="tel:+262693817882">📞 Appeler</a><a class="dev1" href="#devis">Devis 48 h</a>';
+  document.body.appendChild(cb);
 })();
 </script>
 </body>
