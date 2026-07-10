@@ -208,6 +208,19 @@ body{padding-bottom:54px}
 }
 
 /* fin premium */
+
+/* ===== HAUTE COUTURE ===== */
+.fil{position:fixed;top:0;left:0;height:3px;background:#ff6b4a;width:0;z-index:200;transition:width .1s linear}
+.topbar nav a.actif{color:#ff6b4a!important}
+.hero{position:relative}
+.hero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)' opacity='.05'/%3E%3C/svg%3E");pointer-events:none;z-index:1;mix-blend-mode:overlay}
+.hero .wrap{position:relative;z-index:2}
+@media (prefers-reduced-motion: no-preference) and (pointer:fine){
+.polaroid, .carte-photo, .citation{transform-style:preserve-3d;will-change:transform}
+}
+
+.reveal.vu{transition:opacity .25s ease,transform .22s cubic-bezier(.2,.7,.2,1);transition-delay:0s}
+/* fin couture */
 </style>
 <style id="wow-css"></style>
 <style id="polish-css"></style>
@@ -585,6 +598,54 @@ document.addEventListener('click',function(e){
   var cb = document.createElement('div'); cb.className='ctamob';
   cb.innerHTML = '<a class="tel1" href="tel:+262693817882">📞 Appeler</a><a class="dev1" href="#devis">Devis 48 h</a>';
   document.body.appendChild(cb);
+})();
+</script>
+
+<script id="couture-js">
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  /* Fil de lecture */
+  var fil = document.createElement('div'); fil.className='fil'; document.body.appendChild(fil);
+  /* Parallaxe douce du héros */
+  var heroImg = document.querySelector('.hero figure img, .hero .cadre img, .hero .sticker img');
+  var ticking = false;
+  addEventListener('scroll', function(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      var max = document.documentElement.scrollHeight - innerHeight;
+      fil.style.width = (max > 0 ? (scrollY/max*100) : 0) + '%';
+      if (heroImg && scrollY < 900) heroImg.style.transform = 'translateY(' + (scrollY * 0.08) + 'px) scale(1.001)';
+      ticking = false;
+    });
+  }, {passive:true});
+  /* Menu actif selon la section visible */
+  var liens = Array.prototype.slice.call(document.querySelectorAll('.topbar nav a[href^="#"]'));
+  if (liens.length){
+    var cibles = liens.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        liens.forEach(function(a){ a.classList.toggle('actif', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, {rootMargin:'-30% 0px -55% 0px'});
+    cibles.forEach(function(c){ io.observe(c); });
+  }
+  /* Inclinaison 3D des cartes (souris fine uniquement) */
+  if (matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.polaroid, .carte-photo, .citation').forEach(function(c){
+      var raf = null;
+      c.addEventListener('mousemove', function(e){
+        if (raf) return;
+        raf = requestAnimationFrame(function(){
+          var r = c.getBoundingClientRect();
+          var x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
+          c.style.transform = 'perspective(700px) rotateY(' + (x*5) + 'deg) rotateX(' + (-y*5) + 'deg) translateY(-6px)';
+          raf = null;
+        });
+      });
+      c.addEventListener('mouseleave', function(){ c.style.transform = ''; });
+    });
+  }
 })();
 </script>
 </body>
