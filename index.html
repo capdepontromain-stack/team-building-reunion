@@ -468,8 +468,16 @@ figure figcaption{transition:color .2s ease}
         <option>Olympiades / grands groupes</option>
         <option>Autre / je ne sais pas encore</option>
       </select>
-      <label for="msg">Votre projet (date, lieu, nombre de participants…)</label>
-      <textarea id="msg" name="message" rows="4"></textarea>
+      <label for="participants">Nombre de participants</label>
+      <input id="participants" name="participants" type="number" min="1" inputmode="numeric" placeholder="Ex : 25">
+      <label for="date">Date souhaitée</label>
+      <input id="date" name="date" placeholder="Ex : 12/10/2026 ou « à définir »">
+      <label for="lieu">Lieu</label>
+      <input id="lieu" name="lieu" placeholder="Ex : Saint-Gilles, nos locaux, à définir…">
+      <label for="budget">Budget indicatif</label>
+      <input id="budget" name="budget" placeholder="Votre enveloppe approximative (facultatif)">
+      <label for="msg">Votre projet en quelques mots</label>
+      <textarea id="msg" name="message" rows="3" placeholder="Votre objectif, le contexte, vos envies…"></textarea>
       <button class="btn" type="submit">Envoyer ma demande de devis</button>
       <p style="text-align:center;font-size:13px;color:#68727b;margin-top:12px">L'envoi ouvre votre messagerie avec la demande pré-remplie, adressée à contact@pullup.re.<br>Encore plus rapide : <a href="tel:+262693817882">appelez le 06 93 81 78 82</a>.</p>
     </form>
@@ -505,7 +513,11 @@ document.getElementById('form-devis').addEventListener('submit', function(e){
     + "Nom / société : " + encodeURIComponent(f.nom.value) + "%0D%0A"
     + "Téléphone : " + encodeURIComponent(f.telephone.value) + "%0D%0A"
     + "Format : " + encodeURIComponent(f.type.value) + "%0D%0A"
-    + "Détails : " + encodeURIComponent(f.message.value) + "%0D%0A%0D%0A"
+    + "Nombre de participants : " + encodeURIComponent(f.participants.value) + "%0D%0A"
+    + "Date souhaitée : " + encodeURIComponent(f.date.value) + "%0D%0A"
+    + "Lieu : " + encodeURIComponent(f.lieu.value) + "%0D%0A"
+    + "Budget indicatif : " + encodeURIComponent(f.budget.value) + "%0D%0A"
+    + "Projet : " + encodeURIComponent(f.message.value) + "%0D%0A%0D%0A"
     + "(Demande envoyée depuis le site teambuilding974.re)";
   window.location.href = "mailto:contact@pullup.re?subject=" + encodeURIComponent("Demande de devis team building — " + f.nom.value) + "&body=" + corps;
 });
