@@ -805,6 +805,9 @@ document.addEventListener('click',function(e){
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches){
     document.querySelectorAll('.stat .n, .boule .n, .ballon .n, .badge49 .n').forEach(function(el){
       var t = el.textContent;
+      /* Jamais animer une note sur 5 : si l'animation se fige (onglet en
+         arriere-plan, robot d'indexation), le visiteur lit « 0,2/5 ». */
+      if (t.indexOf('/5') !== -1) return;
       var m = t.match(/^(\d+)([.,]\d+)?/);
       if (!m) return;
       var fin = parseFloat(m[1] + (m[2]||'').replace(',','.'));
