@@ -43,7 +43,7 @@ a{color:var(--corail)}
 .badge974{position:absolute;right:4vw;top:88px;background:#fff;color:var(--encre);border:3px solid var(--encre);box-shadow:6px 6px 0 rgba(0,0,0,.35);padding:14px 18px;transform:rotate(4deg);text-align:center}
 .badge974 .n{font-family:"Anton";font-size:34px;color:var(--corail)}
 .badge974 .s{font-size:12.5px;font-weight:700}
-@media(max-width:720px){.badge974{position:absolute;top:8px;right:8px;transform:rotate(4deg) scale(.62);transform-origin:top right} .entete .sur{max-width:60%}}
+@media(max-width:720px){.badge974{position:absolute;top:8px;right:8px;transform:rotate(4deg) scale(.62);transform-origin:top right} .badge974 .av{display:none} .entete .sur{max-width:60%}}
 /* marquee */
 .marquee{background:var(--encre);color:var(--sable);overflow:hidden;white-space:nowrap;border-top:3px solid var(--encre);border-bottom:3px solid var(--encre)}
 .marquee span{display:inline-block;padding:12px 0;font-family:"Anton";font-size:19px;letter-spacing:2px;text-transform:uppercase;animation:defile 28s linear infinite}
@@ -260,7 +260,7 @@ figure figcaption{transition:color .2s ease}
 </div>
 
 <header class="hero">
-  <div class="badge974"><div class="n">4,9/5</div><div class="s">★★★★★ Google<br>+30 avis clients</div></div>
+  <div class="badge974"><div class="n">4,9/5</div><div class="s">★★★★★ Google<span class="av"><br>+30 avis clients</span></div></div>
   <div class="wrap">
     <span class="sur">Journées cohésion clé en main — La Réunion</span>
     <h1>Team<br>building <span class="creux">974</span><br><span class="corail">Soudez vos équipes</span></h1>
@@ -476,6 +476,8 @@ figure figcaption{transition:color .2s ease}
       <input id="nom" name="nom" required>
       <label for="tel">Téléphone</label>
       <input id="tel" name="telephone" type="tel" required>
+      <label for="email">E-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" required placeholder="Pour recevoir votre devis">
       <label for="type">Format souhaité</label>
       <select id="type" name="type">
         <option>Journée team building complète</option>
@@ -494,8 +496,9 @@ figure figcaption{transition:color .2s ease}
       <input id="budget" name="budget" placeholder="Votre enveloppe approximative (facultatif)">
       <label for="msg">Votre projet en quelques mots</label>
       <textarea id="msg" name="message" rows="3" placeholder="Votre objectif, le contexte, vos envies…"></textarea>
-      <button class="btn" type="submit">Envoyer ma demande de devis</button>
-      <p style="text-align:center;font-size:13px;color:#68727b;margin-top:12px">L'envoi ouvre votre messagerie avec la demande pré-remplie, adressée à contact@pullup.re.<br>Encore plus rapide : <a href="tel:+262693817882">appelez le 06 93 81 78 82</a>.</p>
+      <button class="btn" type="submit" id="btn-devis">Envoyer ma demande de devis</button>
+      <p id="devis-etat" role="status" aria-live="polite"></p>
+      <p style="text-align:center;font-size:13px;color:#68727b;margin-top:12px">Votre demande nous arrive directement, réponse sous 48 h.<br>Encore plus rapide : <a href="tel:+262693817882">appelez le 06 93 81 78 82</a>.</p>
     </form>
     </div>
   </div>
@@ -522,21 +525,153 @@ figure figcaption{transition:color .2s ease}
 </footer>
 
 <script>
-document.getElementById('form-devis').addEventListener('submit', function(e){
-  e.preventDefault();
-  var f = this;
-  var corps = "Bonjour,%0D%0A%0D%0AJe souhaite un devis pour un team building.%0D%0A%0D%0A"
-    + "Nom / société : " + encodeURIComponent(f.nom.value) + "%0D%0A"
-    + "Téléphone : " + encodeURIComponent(f.telephone.value) + "%0D%0A"
-    + "Format : " + encodeURIComponent(f.type.value) + "%0D%0A"
-    + "Nombre de participants : " + encodeURIComponent(f.participants.value) + "%0D%0A"
-    + "Date souhaitée : " + encodeURIComponent(f.date.value) + "%0D%0A"
-    + "Lieu : " + encodeURIComponent(f.lieu.value) + "%0D%0A"
-    + "Budget indicatif : " + encodeURIComponent(f.budget.value) + "%0D%0A"
-    + "Projet : " + encodeURIComponent(f.message.value) + "%0D%0A%0D%0A"
-    + "(Demande envoyée depuis le site teambuilding974.re)";
-  window.location.href = "mailto:contact@pullup.re?subject=" + encodeURIComponent("Demande de devis team building — " + f.nom.value) + "&body=" + corps;
+/* ═══════════════════════════════════════════════════════════════
+   SUIVI — Google Analytics 4 + conversions Google Ads
+   Remplir les 3 valeurs ci-dessous et le suivi démarre tout seul.
+   Tant qu'elles sont vides, rien n'est chargé (aucun cookie posé).
+   ─── Où trouver ces valeurs ───────────────────────────────────
+   GA4       : Analytics > Admin > Flux de données  →  "G-XXXXXXXXXX"
+   ADS       : Google Ads > Objectifs > Conversions > Balise Google
+                                                    →  "AW-123456789"
+   ADS_DEVIS : la même page, colonne "Étiquette de conversion"
+                                      →  "AW-123456789/AbCdEfGhIj"
+   ═══════════════════════════════════════════════════════════════ */
+var SUIVI = {
+  GA4:       "",
+  ADS:       "",
+  ADS_DEVIS: ""
+};
+
+(function(){
+  var ids = [SUIVI.GA4, SUIVI.ADS].filter(Boolean);
+  if (!ids.length) return;                 /* rien de configuré : on ne charge rien */
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ids[0];
+  document.head.appendChild(s);
+  ids.forEach(function(id){ gtag('config', id); });
+})();
+
+/* Enregistre un événement (ne fait rien tant que le suivi n'est pas configuré) */
+function pisterEvenement(nom, params){
+  if (typeof gtag !== 'function') return;
+  gtag('event', nom, params || {});
+}
+
+/* Conversion « demande de devis » envoyée à Google Ads */
+function pisterConversionDevis(){
+  pisterEvenement('demande_devis', { source: 'teambuilding974' });
+  if (typeof gtag === 'function' && SUIVI.ADS_DEVIS) {
+    gtag('event', 'conversion', { send_to: SUIVI.ADS_DEVIS });
+  }
+}
+
+/* Clics sur les numéros de téléphone = appels potentiels (autre conversion clé) */
+document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+  a.addEventListener('click', function(){
+    pisterEvenement('clic_telephone', { source: 'teambuilding974' });
+  });
 });
+
+/* ═══════════════════════════════════════════════════════════════
+   FORMULAIRE DE DEVIS — envoi direct vers contact@pullup.re
+   (relais FormSubmit, comme sur cupidon.re)
+   Si le réseau échoue, on bascule sur la messagerie du visiteur
+   pour ne perdre aucune demande.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  var f     = document.getElementById('form-devis');
+  var btn   = document.getElementById('btn-devis');
+  var etat  = document.getElementById('devis-etat');
+  if (!f) return;
+
+  function message(texte, couleur){
+    etat.textContent = texte;
+    etat.style.cssText = 'text-align:center;font-size:14.5px;font-weight:700;margin-top:14px;color:' + couleur;
+  }
+
+  function champs(){
+    return {
+      "Nom / société":          f.nom.value,
+      "Téléphone":              f.telephone.value,
+      "E-mail":                 f.email.value,
+      "Format souhaité":        f.type.value,
+      "Nombre de participants": f.participants.value || "non précisé",
+      "Date souhaitée":         f.date.value || "non précisée",
+      "Lieu":                   f.lieu.value || "non précisé",
+      "Budget indicatif":       f.budget.value || "non précisé",
+      "Le projet":              f.message.value || "—"
+    };
+  }
+
+  /* Filet de secours : ouvre la messagerie du visiteur avec tout le détail */
+  function secoursMessagerie(){
+    var d = champs(), corps = "Bonjour,\r\n\r\nJe souhaite un devis pour un team building.\r\n\r\n";
+    for (var k in d) corps += k + " : " + d[k] + "\r\n";
+    corps += "\r\n(Demande envoyée depuis teambuilding974.re)";
+    window.location.href = "mailto:contact@pullup.re?subject="
+      + encodeURIComponent("Demande de devis team building — " + f.nom.value)
+      + "&body=" + encodeURIComponent(corps);
+  }
+
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true;
+    var libelle = btn.textContent;
+    btn.textContent = "Envoi en cours…";
+    message("", "#68727b");
+
+    var donnees = champs();
+    donnees._subject  = "🎯 Devis team building — " + f.nom.value + " (" + (f.participants.value || "?") + " pers.)";
+    donnees._template = "table";
+    donnees._captcha  = "false";
+    donnees["Reçu depuis"] = "teambuilding974.re";
+
+    /* Deux canaux essayés dans l'ordre. Le premier est la clé anonyme
+       FormSubmit : elle évite d'écrire contact@pullup.re en clair dans la
+       page (à l'abri des robots à spam). Le second sert de secours. */
+    var CANAUX = [
+      'https://formsubmit.co/ajax/a25833b0726786def63fa51e651d059a',
+      'https://formsubmit.co/ajax/contact@pullup.re'
+    ];
+
+    function envoyer(i){
+      if (i >= CANAUX.length) return Promise.reject(new Error('aucun canal disponible'));
+      return fetch(CANAUX[i], {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(donnees)
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(rep){
+        /* FormSubmit répond 200 même en cas de refus : on lit le champ success */
+        if (rep && String(rep.success) === 'true') return rep;
+        throw new Error(rep && rep.message ? rep.message : 'envoi refusé');
+      })
+      .catch(function(err){
+        if (i + 1 < CANAUX.length) return envoyer(i + 1);
+        throw err;
+      });
+    }
+
+    envoyer(0)
+    .then(function(){
+      f.reset();
+      btn.textContent = "Demande envoyée ✓";
+      message("Merci ! Votre demande est bien arrivée. Nous revenons vers vous sous 48 h — pour aller plus vite, appelez le 06 93 81 78 82.", "#0b3c49");
+      pisterConversionDevis();
+    })
+    .catch(function(){
+      btn.disabled = false;
+      btn.textContent = libelle;
+      message("L'envoi automatique n'a pas fonctionné — nous ouvrons votre messagerie avec la demande pré-remplie. Ou appelez le 06 93 81 78 82.", "#c0392b");
+      secoursMessagerie();
+    });
+  });
+})();
 </script>
 
 <script type="application/ld+json">
