@@ -522,15 +522,22 @@ figure figcaption{transition:color .2s ease}
 <!-- Nos derniers conseils (30/07/2026) : liens accueil → articles,
      pour que Google découvre le blog -->
 <section class="derniers-conseils" style="max-width:1080px;margin:0 auto;padding:48px 22px;">
+<style>
+.derniers-conseils ul{gap:12px !important}
+.derniers-conseils li{border:1px solid rgba(128,128,128,.28);border-radius:12px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.derniers-conseils li:hover{transform:translateY(-2px);border-color:rgba(128,128,128,.6);box-shadow:0 8px 20px rgba(0,0,0,.14)}
+.derniers-conseils li a{display:block;padding:14px 16px;text-decoration:none;font-weight:600;line-height:1.5}
+.derniers-conseils li a::after{content:" \2192"}
+</style>
   <h2 style="font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;text-transform:uppercase;font-size:clamp(24px,3.4vw,34px);color:#0b3c49;margin:0 0 6px;line-height:1.1">Nos derniers conseils</h2>
   <p style="opacity:.75;margin:0 0 18px;">Le blog team building : des réponses concrètes avant de vous lancer.</p>
   <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:6px 26px;">
-      <li style="padding:7px 0;">→ <a href="/blog/combien-coute-team-building-reunion/">Combien coûte un team building à La Réunion ? Le guide du budget</a></li>
-      <li style="padding:7px 0;">→ <a href="/blog/top-10-activites-team-building-reunion/">Top 10 des activités de team building à La Réunion</a></li>
-      <li style="padding:7px 0;">→ <a href="/blog/ou-faire-team-building-lieux-reunion/">Où faire son team building ? Les meilleurs lieux de l&#x27;île</a></li>
-      <li style="padding:7px 0;">→ <a href="/blog/team-building-rentree-entreprise-reunion/">Team building de rentrée : relancer vos équipes en août-septembre</a></li>
-      <li style="padding:7px 0;">→ <a href="/blog/koh-lanta-entreprise-reunion/">Koh-Lanta d&#x27;entreprise : organiser une journée aventure</a></li>
-      <li style="padding:7px 0;">→ <a href="/blog/team-building-cse-comite-entreprise-reunion/">Team building CSE : le guide des comités d&#x27;entreprise</a></li>
+      <li><a href="/blog/combien-coute-team-building-reunion/">Combien coûte un team building à La Réunion ? Le guide du budget</a></li>
+      <li><a href="/blog/top-10-activites-team-building-reunion/">Top 10 des activités de team building à La Réunion</a></li>
+      <li><a href="/blog/ou-faire-team-building-lieux-reunion/">Où faire son team building ? Les meilleurs lieux de l&#x27;île</a></li>
+      <li><a href="/blog/team-building-rentree-entreprise-reunion/">Team building de rentrée : relancer vos équipes en août-septembre</a></li>
+      <li><a href="/blog/koh-lanta-entreprise-reunion/">Koh-Lanta d&#x27;entreprise : organiser une journée aventure</a></li>
+      <li><a href="/blog/team-building-cse-comite-entreprise-reunion/">Team building CSE : le guide des comités d&#x27;entreprise</a></li>
   </ul>
   <p style="margin:18px 0 0;"><a href="/blog/"><strong>Voir tous nos articles →</strong></a></p>
 </section>
