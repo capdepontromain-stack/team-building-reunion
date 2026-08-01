@@ -964,7 +964,7 @@ document.addEventListener('click',function(e){
   var h1 = document.querySelector('.hero h1');
   if (h1 && !calme){
     h1.setAttribute('aria-label', (h1.innerText || h1.textContent).replace(/\s+/g, ' ').trim());
-    var i = 0;
+    var i = 0, dernier = null;
     function decoupe(noeud){
       Array.prototype.slice.call(noeud.childNodes).forEach(function(n){
         if (n.nodeType === 3){
@@ -972,11 +972,14 @@ document.addEventListener('click',function(e){
           n.textContent.split(/(\s+)/).forEach(function(part){
             if (!part) return;
             if (/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+            /* Ponctuation seule : on la recolle au mot précédent pour éviter
+               qu'elle parte toute seule à la ligne. */
+            if (/^[.,;:!?…»)\]]+$/.test(part) && dernier){ dernier.appendChild(document.createTextNode(part)); return; }
             var sp = document.createElement('span');
             sp.className = 'mot'; sp.textContent = part;
             sp.setAttribute('aria-hidden', 'true');
             sp.style.setProperty('--i', i++);
-            frag.appendChild(sp);
+            frag.appendChild(sp); dernier = sp;
           });
           noeud.replaceChild(frag, n);
         } else if (n.nodeType === 1 && n.tagName !== 'BR'){
