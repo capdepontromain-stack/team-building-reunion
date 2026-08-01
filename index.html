@@ -1089,5 +1089,36 @@ document.addEventListener('click',function(e){
 
 })();
 </script>
+<style id="21st-v3">
+/* ===== INSPIRATION 21ST.DEV — DÉTAILS PRÉCIEUX ===== */
+/* reflet de verre au survol des photos (« Glass Shine Card ») */
+.gl-21{position:relative;overflow:hidden}
+.gl-21::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);transition:left .65s ease;pointer-events:none;z-index:2}
+.gl-21:hover::after{left:160%}
+/* halo pulsé autour du bouton devis (« Animated Glow Card ») */
+@media(prefers-reduced-motion:no-preference){
+.glow-21{animation:pulse21 3s ease-in-out infinite}
+@keyframes pulse21{0%,100%{box-shadow:0 0 16px 2px rgba(255,107,74,.35)}50%{box-shadow:0 0 32px 7px rgba(255,107,74,.6)}}
+}
+/* fin détails précieux */
+</style>
+<script id="21st-v3-js">
+(function(){
+  var calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Reflet de verre sur les visuels */
+  if (matchMedia('(pointer:fine)').matches){
+    document.querySelectorAll('.pola').forEach(function(el){
+      if (el.closest('.hero') || el.closest('.topbar') || el.closest('footer')) return;
+      el.classList.add('gl-21');
+    });
+  }
+
+  /* Halo pulsé sur le bouton devis */
+  var cta = document.querySelector('#btn-devis');
+  if (cta) cta.classList.add('glow-21');
+
+})();
+</script>
 </body>
 </html> Et le team building n'est pas qu'un outil interne : c'est aussi le cœur d'un incentive réussi — la journée de récompense qui motive plus qu'une prime — et c'est aussi un puissant levier B2B (business to business) — invitez vos clients et partenaires professionnels à une journée de défis partagés, et vos relations commerciales changent de dimension.
