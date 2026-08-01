@@ -1120,5 +1120,36 @@ document.addEventListener('click',function(e){
 
 })();
 </script>
+<style id="21st-v4-css">
+.rot21{margin-top:22px;font-family:"Anton";font-size:clamp(17px,2.2vw,23px);text-transform:uppercase;letter-spacing:1px;color:#fff}
+.rot21 .mot-tourne{display:inline-block;color:var(--soleil);min-width:9ch;transition:opacity .3s,transform .3s}
+.rot21 .mot-tourne.sort{opacity:0;transform:translateY(-12px)}
+</style>
+<script id="21st-v4">
+(function(){
+  var calme = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Mot d'activité tournant (inspiration « Text Rotate ») */
+  var h1 = document.querySelector('.hero h1');
+  if (h1 && !calme){
+    var mots = ['Olympiades', 'Koh-Lanta', 'Chasse au trésor', 'Color run', 'Archery tag', 'Ventriglisse'];
+    var ligne = document.createElement('div');
+    ligne.className = 'rot21'; ligne.setAttribute('aria-hidden', 'true');
+    ligne.innerHTML = 'Cette saison : <span class="mot-tourne">' + mots[0] + '</span>';
+    h1.parentNode.appendChild(ligne);
+    var sp = ligne.querySelector('.mot-tourne'), i = 0;
+    setInterval(function(){
+      sp.classList.add('sort');
+      setTimeout(function(){
+        i = (i+1) % mots.length; sp.textContent = mots[i];
+        sp.style.transform = 'translateY(12px)';
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){
+          sp.classList.remove('sort'); sp.style.transform = '';
+        }); });
+      }, 300);
+    }, 2400);
+  }
+})();
+</script>
 </body>
 </html> Et le team building n'est pas qu'un outil interne : c'est aussi le cœur d'un incentive réussi — la journée de récompense qui motive plus qu'une prime — et c'est aussi un puissant levier B2B (business to business) — invitez vos clients et partenaires professionnels à une journée de défis partagés, et vos relations commerciales changent de dimension.
