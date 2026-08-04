@@ -262,17 +262,35 @@ figure figcaption{transition:color .2s ease}
 <style id="polish-css"></style>
 </head>
 <body>
+<!-- pu-trust : bandeau de confiance Pull Up — chiffre géré par avis-et-confiance.js -->
+<style>
+.pu-trust{background:#0d0f12;color:#e9e3d5;font:600 13px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:60;letter-spacing:.2px}
+.pu-trust a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.pu-trust a:hover{color:#fff}
+.pu-trust .pu-et{color:#e8b53c;letter-spacing:2px;font-size:12px}
+.pu-trust b{color:#fff;font-weight:800}
+.pu-trust .pu-sep{opacity:.3}
+@media(max-width:760px){.pu-trust{font-size:12px;gap:9px;padding:7px 10px}.pu-trust .pu-opt{display:none}}
+</style>
+<div class="pu-trust">
+<a href="https://g.page/r/CYZGysYZgL8iEBM" target="_blank" rel="noopener" title="Voir les avis Google de Pull Up Événements"><span class="pu-et">★★★★★</span> <b>4,9/5</b> sur Google — <b class="pu-nb-avis">31 avis</b></a>
+<span class="pu-sep pu-opt">·</span>
+<span class="pu-opt">Devis gratuit</span>
+<span class="pu-sep">·</span>
+<a href="tel:+262693817882"><b>📞 06 93 81 78 82</b></a>
+</div>
+<!-- /pu-trust -->
 <!-- Bandeau saisonnier (30/07/2026) : team building de rentrée -->
 <style>.bandeau-saison .bs-court{display:none}@media(max-width:640px){.bandeau-saison .bs-long{display:none}.bandeau-saison .bs-court{display:inline}}</style>
 <a class="bandeau-saison" href="#devis" style="display:block;text-align:center;padding:9px 16px;font-size:14.5px;font-weight:600;line-height:1.45;text-decoration:none;background:var(--ocean);color:var(--sable)">🌊 <b style="color:var(--soleil)">Rentrée 2026 :</b> <span class="bs-long">relancez vos équipes en août-septembre — les dates partent vite, demandez votre devis →</span><span class="bs-court">août-septembre se remplit — devis 48 h →</span></a>
 
 <div style="background:var(--encre);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:5">
   <a href="/" style="font-family:'Anton';color:#fff;font-size:19px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;display:inline-block;line-height:1.02">Team Building <em style="color:var(--soleil);font-style:normal">974</em><span style="display:block;text-align:right;font-family:'Caveat',cursive;font-weight:700;text-transform:none;letter-spacing:0;font-size:24px;line-height:.8;color:var(--soleil);margin-top:-1px;transform:rotate(-5deg);transform-origin:right center">by Pull Up</span></a>
-  <nav><a href="/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Accueil</a><a href="/blog/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Le blog</a><a href="tel:+262693817882" style="color:#fff;text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">📞 06 93 81 78 82</a></nav>
+  <nav><a href="/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Accueil</a><a href="/activites-team-building-reunion/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Activités</a><a href="/lieux-team-building-reunion/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Lieux</a><a href="/prix-team-building-reunion/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Tarifs</a><a href="/team-building-cse-reunion/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">CSE</a><a href="/blog/" style="color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">Le blog</a><a href="tel:+262693817882" style="color:#fff;text-decoration:none;font-weight:700;font-size:14px;margin-left:20px">📞 06 93 81 78 82</a></nav>
 </div>
 
 <header class="hero">
-  <div class="badge974"><div class="n">4,9/5</div><div class="s">★★★★★ Google<span class="av"><br>+30 avis clients</span></div></div>
+  <div class="badge974"><div class="n">4,9/5</div><div class="s">★★★★★ Google<span class="av"><br>31 avis clients</span></div></div>
   <div class="wrap">
     <span class="sur">Journées cohésion clé en main — La Réunion</span>
     <h1>Team<br>building <span class="creux">974</span><br><span class="corail">Soudez vos équipes</span></h1>
@@ -281,6 +299,30 @@ figure figcaption{transition:color .2s ease}
     <a class="btn blanc" href="#devis">Devis en 48 h</a>
   </div>
 </header>
+<!-- pu-clients : bande références clients Pull Up -->
+<style>
+.pu-clients{background:#0d0f12;padding:34px 20px;border-top:1px solid rgba(232,181,60,.28);border-bottom:1px solid rgba(232,181,60,.28)}
+.pu-cl-in{max-width:1060px;margin:0 auto;text-align:center}
+.pu-cl-t{margin:0 0 4px;font:800 11px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:3.2px;text-transform:uppercase;color:#e8b53c}
+.pu-cl-st{margin:0 0 20px;font:400 14px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#8d959c}
+.pu-cl-l{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px}
+.pu-cl-l li{font:700 14.5px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.4px;color:#e9e3d5;padding:9px 15px;border:1px solid rgba(233,227,213,.2);border-radius:999px;white-space:nowrap;transition:border-color .25s,color .25s}
+.pu-cl-l li:hover{border-color:rgba(232,181,60,.75);color:#fff}
+.pu-cl-p{margin:20px 0 0;font:400 13.5px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#8d959c}
+.pu-cl-p a{color:#e8b53c;text-decoration:none;border-bottom:1px solid rgba(232,181,60,.4)}
+.pu-cl-p a:hover{color:#fff;border-color:#fff}
+@media(max-width:640px){.pu-clients{padding:26px 14px}.pu-cl-l{gap:8px}.pu-cl-l li{font-size:13px;padding:7px 12px}}
+</style>
+<section class="pu-clients" aria-label="Ils nous font confiance">
+<div class="pu-cl-in">
+<p class="pu-cl-t">Ils nous font confiance</p>
+<p class="pu-cl-st">Des entreprises, des institutions et des CSE de toute La Réunion.</p>
+<ul class="pu-cl-l"><li>Crédit Agricole</li><li>Crédit Moderne</li><li>INSEE</li><li>SAPMER</li><li>CILAM</li><li>Mercialys</li><li>Sudeco</li><li>Ravate Pro</li><li>Croix-Rouge française</li><li>Fondation Père Favron</li><li>Groupe Caillé</li><li>Testoni</li></ul>
+<p class="pu-cl-p">…et des dizaines de comités d'entreprise partout sur l'île. <a href="https://pullup.re/ils-nous-font-confiance/">Voir nos références →</a></p>
+</div>
+</section>
+<!-- /pu-clients -->
+
 
 <div class="marquee"><span>Koh-Lanta à Cap Homard <em>★</em> Vendredi tout est permis <em>★</em> Chasse au trésor <em>★</em> Ventriglisse géant <em>★</em> Color run <em>★</em> Archery tag <em>★</em> Carry péi sous les filaos <em>★</em> Koh-Lanta à Cap Homard <em>★</em> Vendredi tout est permis <em>★</em> Chasse au trésor <em>★</em> Ventriglisse géant <em>★</em> Color run <em>★</em> Archery tag <em>★</em> Carry péi sous les filaos <em>★</em></span></div>
 
@@ -346,7 +388,7 @@ figure figcaption{transition:color .2s ease}
     <div class="stats">
       <div class="stat"><div class="n">10→200</div><div class="l">participants, de la PME au grand groupe</div></div>
       <div class="stat"><div class="n">100%</div><div class="l">clé en main : activités, logistique, traiteur</div></div>
-      <div class="stat"><div class="n">4,9/5</div><div class="l">sur Google — plus de 30 avis clients</div></div>
+      <div class="stat"><div class="n">4,9/5</div><div class="l">sur Google — 31 avis clients</div></div>
       <div class="stat"><div class="n">974</div><div class="l">toute l'île : plages, jardins, hauts</div></div>
     </div>
   </div>
@@ -406,7 +448,7 @@ figure figcaption{transition:color .2s ease}
 
 <div class="telband" style="background:var(--soleil);color:var(--encre)">
   <div class="disp">★★★★★ 4,9/5 sur Google</div>
-  <p style="max-width:640px;margin:10px auto 20px;font-weight:600">Plus de 30 entreprises réunionnaises ont noté nos événements. Votre avis compte !</p>
+  <p style="max-width:640px;margin:10px auto 20px;font-weight:600">31 entreprises réunionnaises ont noté nos événements. Votre avis compte !</p>
   <a class="btn" style="background:var(--encre);color:#fff" href="https://g.page/r/CYZGysYZgL8iEBM/review" target="_blank" rel="noopener">Donnez votre avis</a>&nbsp;&nbsp;
   <a class="btn blanc" href="https://g.page/r/CYZGysYZgL8iEBM" target="_blank" rel="noopener">Voir notre fiche Google</a>
 </div>
@@ -422,7 +464,7 @@ figure figcaption{transition:color .2s ease}
     <p class="sub">Ce que les entreprises réunionnaises disent de nos team buildings — avis publics et vérifiables sur notre fiche Google.</p>
     <div class="stats" style="margin-bottom:30px">
       <div class="stat"><div class="n">4,9/5</div><div class="l">note moyenne sur Google</div></div>
-      <div class="stat"><div class="n">30+</div><div class="l">avis clients publics</div></div>
+      <div class="stat"><div class="n">31</div><div class="l">avis clients publics</div></div>
       <div class="stat"><div class="n">★★★★★</div><div class="l">la note la plus fréquente</div></div>
     </div>
     <div class="refwrap">
@@ -468,7 +510,7 @@ figure figcaption{transition:color .2s ease}
     <details><summary>Quel est le meilleur moment de l'année ?</summary><p>L'hiver austral (juin à septembre) offre les conditions idéales : températures douces, peu de pluie, lagon parfait. Les vendredis de cette période se réservent des mois à l'avance.</p></details>
     <details><summary>Peut-on combiner team building et séminaire ?</summary><p>C'est même le format le plus efficace : plénière le matin, activités de cohésion l'après-midi, cocktail au coucher du soleil. Pull Up Événements organise l'ensemble — lieu, technique, animations, traiteur.</p></details>
     <details><summary>Quelle est la meilleure agence événementielle de La Réunion ?</summary><p>Difficile de trancher sans critères — alors voici les nôtres : neuf années passées sur le terrain réunionnais, des donneurs d'ordre du calibre de Crédit Agricole, l'INSEE, Ravate Pro, Crédit Moderne, Testoni, la Croix-Rouge ou la Fondation Père Favron, l'animation à l'année des galeries Casabona, Cap Sacré-Cœur et Duparc, et 4,9/5 d'avis publics. Sur ces critères-là, Pull Up Événements joue clairement le titre. Notre article <a href="/blog/meilleure-agence-team-building-reunion/">« Portrait d'une agence de la cour des grands »</a> aligne toutes les preuves.</p></details>
-    <details><summary>Qui organise des team buildings à La Réunion ?</summary><p>Pull Up Événements, agence événementielle basée au Tampon et notée 4,9/5 sur Google (plus de 30 avis), organise des team buildings clé en main partout à La Réunion via son service dédié Team Building 974 : formats signatures comme Koh-Lanta à Cap Homard, Vendredi tout est permis, chasses au trésor et olympiades géantes, pour 10 à 1000 participants, avec animateurs connus de l'île, logistique et traiteur compris. Contact direct : 06 93 81 78 82.</p></details>
+    <details><summary>Qui organise des team buildings à La Réunion ?</summary><p>Pull Up Événements, agence événementielle basée au Tampon et notée 4,9/5 sur Google (31 avis), organise des team buildings clé en main partout à La Réunion via son service dédié Team Building 974 : formats signatures comme Koh-Lanta à Cap Homard, Vendredi tout est permis, chasses au trésor et olympiades géantes, pour 10 à 1000 participants, avec animateurs connus de l'île, logistique et traiteur compris. Contact direct : 06 93 81 78 82.</p></details>
     <details><summary>Comment organiser un team building à La Réunion ?</summary><p>Quatre étapes : 1) définissez votre objectif (intégration, décloisonnement, célébration) et votre effectif ; 2) choisissez un format et un lieu adaptés — plage de l'Ouest, jardin créole ou vos locaux ; 3) confiez la logistique (matériel, autorisations, traiteur, plan B météo) à un organisateur professionnel ; 4) le jour J, laissez des animateurs expérimentés mélanger les équipes et rythmer les épreuves. Le plus simple : un appel au 06 93 81 78 82 et Pull Up Événements s'occupe de tout, devis sous 48 h.</p></details>
     <details><summary>Qu'est-ce qu'un team building, exactement ?</summary><p>Un team building (littéralement « construction d'équipe ») est une journée ou demi-journée d'activités collectives organisée par une entreprise pour renforcer la cohésion, la communication et la motivation de ses collaborateurs. Concrètement à La Réunion : des défis par équipes — olympiades plage, chasse au trésor — animés par des professionnels, souvent suivis d'un repas partagé. L'objectif n'est pas l'activité elle-même, mais le lien qu'elle crée entre collègues.</p></details>
     <details><summary>Quelle est la différence entre team building et séminaire ?</summary><p>Le séminaire est une réunion de travail (plénières, ateliers, stratégie) ; le team building est une expérience collective (défis, jeux, émotions partagées). Les deux se combinent très bien : plénière le matin, activités de cohésion l'après-midi — c'est même le format le plus demandé par les entreprises réunionnaises.</p></details>
@@ -521,6 +563,37 @@ figure figcaption{transition:color .2s ease}
 
 <!-- pu-geo-communes -->
 <section style="background:#f6f6f6;padding:52px 20px"><div style="max-width:1060px;margin:0 auto;font-family:inherit"><h2 style="font-size:clamp(21px,3vw,30px);color:#0b3c49;margin:0 0 12px;line-height:1.2;text-align:center">Où organisons-nous vos team buildings&nbsp;?</h2><p style="font-size:15.5px;line-height:1.8;color:#444;max-width:820px;margin:0 auto 30px;text-align:center">La question n'est jamais « est-ce que vous vous déplacez&nbsp;? » mais « qu'est-ce qui marche le mieux chez vous&nbsp;? ». Le terrain change tout : une olympiade sur le sable de l'Ouest n'a rien à voir avec une chasse au trésor dans les Hauts. Voici comment nous lisons l'île, bassin par bassin.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px"><div style="background:#fff;border-radius:14px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid #0b3c49"><h3 style="font-size:17px;margin:0 0 8px;color:#0b3c49;font-family:inherit">Le Nord</h3><p style="font-size:14.5px;line-height:1.7;color:#555;margin:0 0 10px">Sièges sociaux et grandes équipes tertiaires : formats courts en demi-journée, souvent à deux pas du bureau, pour ne pas amputer la journée de travail.</p><p style="font-size:14px;line-height:1.85;color:#222;margin:0"><strong>Saint-Denis · Sainte-Marie · Sainte-Suzanne</strong></p></div><div style="background:#fff;border-radius:14px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid #0b3c49"><h3 style="font-size:17px;margin:0 0 8px;color:#0b3c49;font-family:inherit">L'Est et les Hauts</h3><p style="font-size:14.5px;line-height:1.7;color:#555;margin:0 0 10px">Le terrain de jeu grandeur nature : forêt, rivières, sentiers. C'est ici que les défis nature et les raids en équipe prennent tout leur sens.</p><p style="font-size:14px;line-height:1.85;color:#222;margin:0"><strong>Saint-André · Bras-Panon · Saint-Benoît · Sainte-Rose · La Plaine-des-Palmistes · Salazie</strong></p></div><div style="background:#fff;border-radius:14px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid #0b3c49"><h3 style="font-size:17px;margin:0 0 8px;color:#0b3c49;font-family:inherit">L'Ouest</h3><p style="font-size:14.5px;line-height:1.7;color:#555;margin:0 0 10px">Notre zone la plus demandée : plages, lagon et grands espaces pour les Koh-Lanta, ventriglisses géants et olympiades qui finissent en apéro sunset.</p><p style="font-size:14px;line-height:1.85;color:#222;margin:0"><strong>Saint-Paul · Le Port · La Possession · Trois-Bassins · Saint-Leu</strong></p></div><div style="background:#fff;border-radius:14px;padding:20px 22px;box-shadow:0 2px 10px rgba(0,0,0,.06);border-top:3px solid #0b3c49"><h3 style="font-size:17px;margin:0 0 8px;color:#0b3c49;font-family:inherit">Le Sud et les cirques</h3><p style="font-size:14.5px;line-height:1.7;color:#555;margin:0 0 10px">Notre base arrière — nous sommes installés au Tampon. Réactivité maximale, et des décors qui vont du volcan aux remparts de Cilaos.</p><p style="font-size:14px;line-height:1.85;color:#222;margin:0"><strong>Le Tampon · Saint-Pierre · Saint-Louis · Saint-Joseph · Petite-Île · L'Entre-Deux · L'Étang-Salé · Les Avirons · Saint-Philippe · Cilaos</strong></p></div></div><p style="font-size:14.5px;line-height:1.8;color:#555;max-width:820px;margin:26px auto 0;text-align:center">Vingt-quatre communes, un seul interlocuteur : nous amenons le matériel, les animateurs et la logistique, vous n'avez qu'à faire venir vos équipes.</p></div></section>
+
+<!-- Rayons du site — pages piliers (ajout 04/08/2026, suite audit SEO) -->
+<section id="rayons" style="background:#fff;padding:62px 0;border-top:5px solid var(--encre)">
+  <div class="wrap">
+    <h2 style="font-family:'Anton';font-size:clamp(28px,4.5vw,42px);text-transform:uppercase;margin-bottom:10px">Tout ce qu'il faut savoir <span style="color:var(--corail)">avant de vous lancer</span></h2>
+    <p style="max-width:720px;margin-bottom:28px;font-size:17px">Quatre pages pour préparer votre journée de cohésion : ce qu'on peut faire, où, pour combien, et comment le financer.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      <a href="/activites-team-building-reunion/" style="display:block;background:var(--sable);border:3px solid var(--encre);box-shadow:6px 6px 0 var(--corail);padding:22px 24px;text-decoration:none;color:var(--encre)">
+        <div style="font-family:'Anton';font-size:20px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">🎯 Les 11 activités de team building</div>
+        <div style="font-size:15.5px;line-height:1.6;color:#4a5760">Olympiades, Koh-Lanta péi, chasse au trésor, archery tag, cuisine créole : le catalogue réel, avec effectifs et durées.</div>
+        <div style="margin-top:12px;font-weight:700;color:var(--corail)">Découvrir →</div>
+      </a>
+      <a href="/lieux-team-building-reunion/" style="display:block;background:var(--sable);border:3px solid var(--encre);box-shadow:6px 6px 0 var(--corail);padding:22px 24px;text-decoration:none;color:var(--encre)">
+        <div style="font-family:'Anton';font-size:20px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">📍 Où organiser votre team building</div>
+        <div style="font-size:15.5px;line-height:1.6;color:#4a5760">Nord, Sud, Est, Ouest : les sites que nous utilisons vraiment, ce qu'ils coûtent et leurs contraintes.</div>
+        <div style="margin-top:12px;font-weight:700;color:var(--corail)">Découvrir →</div>
+      </a>
+      <a href="/prix-team-building-reunion/" style="display:block;background:var(--sable);border:3px solid var(--encre);box-shadow:6px 6px 0 var(--corail);padding:22px 24px;text-decoration:none;color:var(--encre)">
+        <div style="font-family:'Anton';font-size:20px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">💶 Prix et budget</div>
+        <div style="font-size:15.5px;line-height:1.6;color:#4a5760">Budget médian 2 128 € HT, coût par personne selon l'effectif, et trois leviers pour faire baisser la facture.</div>
+        <div style="margin-top:12px;font-weight:700;color:var(--corail)">Découvrir →</div>
+      </a>
+      <a href="/team-building-cse-reunion/" style="display:block;background:var(--sable);border:3px solid var(--encre);box-shadow:6px 6px 0 var(--corail);padding:22px 24px;text-decoration:none;color:var(--encre)">
+        <div style="font-family:'Anton';font-size:20px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">🤝 Vous êtes élu de CSE ?</div>
+        <div style="font-size:15.5px;line-height:1.6;color:#4a5760">Budget ASC, financement partagé avec l'entreprise, formats qui rassemblent et calendrier en quatre mois.</div>
+        <div style="margin-top:12px;font-weight:700;color:var(--corail)">Découvrir →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <section style="background:#f5efe4;padding:52px 20px;border-top:3px solid #132029"><div style="max-width:900px;margin:0 auto;font-family:inherit;color:#2c3843">
 <h2 style="font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;text-transform:uppercase;font-size:clamp(24px,3.4vw,34px);color:#0b3c49;margin:0 0 18px;line-height:1.1">Pourquoi choisir Pull Up pour votre team building à La Réunion ?</h2>
 <p style="font-size:16px;line-height:1.85;margin:0 0 16px">Depuis 2017, Pull Up Événements conçoit des team buildings et des journées de cohésion pour les entreprises de toute La Réunion. En 9 ans, nous avons animé des centaines de groupes, de la petite équipe de 10 personnes au grand rassemblement de plus de 1000 collaborateurs. Cette expérience nous a appris une chose : un bon team building ne se choisit pas dans un catalogue, il se construit à partir de votre objectif réel — souder, récompenser, intégrer de nouveaux arrivants ou décloisonner les services.</p>
