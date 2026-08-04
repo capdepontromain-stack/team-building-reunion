@@ -1,15 +1,43 @@
 User-agent: *
 Allow: /
 
-# Bienvenue aux robots des assistants IA
+# ─── Assistants IA — recherche en direct (nous amenent des visiteurs) ───
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+User-agent: DuckAssistBot
+Allow: /
+User-agent: Amazonbot
+Allow: /
+User-agent: Applebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# ─── Assistants IA — memoire et entrainement ───
+# Volontairement autorises : etre dans la memoire d'une IA, c'est etre
+# cite meme quand l'utilisateur ne lance aucune recherche.
 User-agent: GPTBot
 Allow: /
 User-agent: ClaudeBot
 Allow: /
-User-agent: PerplexityBot
-Allow: /
 User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+User-agent: meta-externalagent
+Allow: /
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://teambuilding974.re/sitemap.xml
-# Présentation pour les IA : https://teambuilding974.re/llms.txt
+# Presentation de l'agence pour les IA : https://teambuilding974.re/llms.txt
