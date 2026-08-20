@@ -301,26 +301,70 @@ figure figcaption{transition:color .2s ease}
 </header>
 <!-- pu-clients : bande références clients Pull Up -->
 <style>
-.pu-clients{background:#0d0f12;padding:34px 20px;border-top:1px solid rgba(232,181,60,.28);border-bottom:1px solid rgba(232,181,60,.28)}
-.pu-cl-in{max-width:1060px;margin:0 auto;text-align:center}
+.pu-clients{background:#0d0f12;padding:38px 0 34px;border-top:1px solid rgba(232,181,60,.28);border-bottom:1px solid rgba(232,181,60,.28);overflow:hidden}
+.pu-cl-in{max-width:1060px;margin:0 auto;text-align:center;padding:0 20px}
 .pu-cl-t{margin:0 0 4px;font:800 11px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:3.2px;text-transform:uppercase;color:#e8b53c}
-.pu-cl-st{margin:0 0 20px;font:400 14px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#8d959c}
-.pu-cl-l{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px}
-.pu-cl-l li{font:700 14.5px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.4px;color:#e9e3d5;padding:9px 15px;border:1px solid rgba(233,227,213,.2);border-radius:999px;white-space:nowrap;transition:border-color .25s,color .25s}
-.pu-cl-l li:hover{border-color:rgba(232,181,60,.75);color:#fff}
-.pu-cl-p{margin:20px 0 0;font:400 13.5px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#8d959c}
+.pu-cl-st{margin:0 0 22px;font:400 14px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#8d959c}
+.pu-ct{display:flex;justify-content:center;align-items:stretch;gap:0;flex-wrap:wrap;margin:0 auto 8px;max-width:900px}
+.pu-ct .c{flex:1 1 170px;padding:6px 18px 14px;position:relative}
+.pu-ct .c+.c::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:1px;background:rgba(233,227,213,.14)}
+.pu-ct .n{font:800 38px/1.15 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;letter-spacing:-.5px}
+.pu-ct .n em{font-style:normal}
+.pu-ct .n .pu-or{color:#e8b53c}
+.pu-ct .l{margin-top:4px;font:600 11px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:#8d959c}
+.pu-mq{position:relative;margin-top:22px}
+.pu-mq::before,.pu-mq::after{content:"";position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none}
+.pu-mq::before{left:0;background:linear-gradient(90deg,#0d0f12,rgba(13,15,18,0))}
+.pu-mq::after{right:0;background:linear-gradient(270deg,#0d0f12,rgba(13,15,18,0))}
+.pu-mq-l{display:flex;width:max-content;animation:pu-defile 42s linear infinite}
+.pu-mq:hover .pu-mq-l{animation-play-state:paused}
+.pu-mq-l ul{list-style:none;margin:0;padding:0;display:flex;align-items:center}
+.pu-mq-l li{font:800 21px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;color:rgba(233,227,213,.5);padding:6px 30px;transition:color .3s}
+.pu-mq-l li:hover{color:#fff}
+.pu-mq-l li::after{content:"◆";font-size:8px;color:rgba(232,181,60,.55);margin-left:60px;vertical-align:middle}
+@keyframes pu-defile{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.pu-mq-l{animation:none;width:auto;flex-wrap:wrap;justify-content:center}.pu-mq-l ul{flex-wrap:wrap;justify-content:center}.pu-mq-l ul[aria-hidden]{display:none}.pu-mq::before,.pu-mq::after{display:none}}
+.pu-cl-p{margin:24px 0 0;font:400 13.5px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#8d959c;padding:0 20px}
 .pu-cl-p a{color:#e8b53c;text-decoration:none;border-bottom:1px solid rgba(232,181,60,.4)}
 .pu-cl-p a:hover{color:#fff;border-color:#fff}
-@media(max-width:640px){.pu-clients{padding:26px 14px}.pu-cl-l{gap:8px}.pu-cl-l li{font-size:13px;padding:7px 12px}}
+@media(max-width:640px){.pu-clients{padding:28px 0 26px}.pu-ct .c{flex:1 1 40%;padding:6px 8px 10px}.pu-ct .c:nth-child(3)::before{display:none}.pu-ct .n{font-size:30px}.pu-ct .l{font-size:10px;letter-spacing:1.1px}.pu-mq-l li{font-size:16px;padding:5px 18px}.pu-mq-l li::after{margin-left:36px}.pu-mq::before,.pu-mq::after{width:40px}}
 </style>
 <section class="pu-clients" aria-label="Ils nous font confiance">
 <div class="pu-cl-in">
 <p class="pu-cl-t">Ils nous font confiance</p>
 <p class="pu-cl-st">Des entreprises, des institutions et des CSE de toute La Réunion.</p>
-<ul class="pu-cl-l"><li>Crédit Agricole</li><li>Crédit Moderne</li><li>INSEE</li><li>SAPMER</li><li>CILAM</li><li>Mercialys</li><li>Sudeco</li><li>Ravate Pro</li><li>Croix-Rouge française</li><li>Fondation Père Favron</li><li>Groupe Caillé</li><li>Testoni</li></ul>
-<p class="pu-cl-p">…et des dizaines de comités d'entreprise partout sur l'île. <a href="https://pullup.re/ils-nous-font-confiance/">Voir nos références →</a></p>
+<div class="pu-ct">
+<div class="c"><div class="n"><em data-pu-n="500">500</em><span class="pu-or">+</span></div><div class="l">événements réalisés</div></div>
+<div class="c"><div class="n"><em data-pu-n="9">9</em> ans</div><div class="l">d'expérience — depuis 2017</div></div>
+<div class="c"><div class="n"><em data-pu-n="4.9" data-pu-dec="1">4,9</em><span class="pu-or">/5</span></div><div class="l">note moyenne Google</div></div>
+<div class="c"><div class="n"><em data-pu-n="77">77</em></div><div class="l">avis clients</div></div>
 </div>
+</div>
+<div class="pu-mq" role="presentation">
+<div class="pu-mq-l"><ul><li>Crédit Agricole</li><li>Crédit Moderne</li><li>INSEE</li><li>SAPMER</li><li>CILAM</li><li>Mercialys</li><li>Sudeco</li><li>Ravate Pro</li><li>Croix-Rouge française</li><li>Fondation Père Favron</li><li>Groupe Caillé</li><li>Testoni</li><li>IAE Réunion</li></ul><ul aria-hidden="true"><li>Crédit Agricole</li><li>Crédit Moderne</li><li>INSEE</li><li>SAPMER</li><li>CILAM</li><li>Mercialys</li><li>Sudeco</li><li>Ravate Pro</li><li>Croix-Rouge française</li><li>Fondation Père Favron</li><li>Groupe Caillé</li><li>Testoni</li><li>IAE Réunion</li></ul></div>
+</div>
+<p class="pu-cl-p">…et des dizaines de comités d'entreprise partout sur l'île. <a href="https://pullup.re/ils-nous-font-confiance/">Voir nos références →</a></p>
 </section>
+<script>
+(function(){
+  var els=document.querySelectorAll('.pu-clients em[data-pu-n]');
+  if(!els.length||!('IntersectionObserver' in window))return;
+  function anime(el){
+    var fin=parseFloat(el.getAttribute('data-pu-n')),dec=parseInt(el.getAttribute('data-pu-dec')||'0',10),t0=null;
+    function pas(t){
+      if(!t0)t0=t;
+      var p=Math.min((t-t0)/1300,1);p=1-Math.pow(1-p,3);
+      el.textContent=(fin*p).toFixed(dec).replace('.',',');
+      if(p<1)requestAnimationFrame(pas);
+    }
+    requestAnimationFrame(pas);
+  }
+  var vu=new IntersectionObserver(function(entrees){
+    entrees.forEach(function(e){if(e.isIntersecting){anime(e.target);vu.unobserve(e.target);}});
+  },{threshold:.6});
+  els.forEach(function(el){vu.observe(el);});
+})();
+</script>
 <!-- /pu-clients -->
 
 
