@@ -690,6 +690,7 @@ figure figcaption{transition:color .2s ease}
 <p style="font-size:16px;line-height:1.85;margin:0 0 16px">La Réunion offre un décor que peu de destinations peuvent égaler : lagon de l'Ouest, plages de filaos, forêts, cirques et culture créole. Nous exploitons ce cadre avec des formats signatures — Koh-Lanta à Cap Homard, olympiades au lagon, rallye créole, ateliers percussions maloya, food team building autour de la cuisine péi — tous testés sur le terrain et adaptables à votre équipe. Et parce que la météo austral est capricieuse, nous prévoyons toujours un plan B couvert. Pour comparer les formats, parcourez <a href="/activites-team-building-reunion/" style="color:#ff6b4a">nos 17 activités de team building à La Réunion</a> : vous y trouverez l'activité de groupe qui colle à votre effectif, votre budget et votre objectif.</p>
 <h3 style="font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:21px;color:#ff6b4a;margin:26px 0 10px">Clé en main, du premier appel au dernier applaudissement</h3>
 <p style="font-size:16px;line-height:1.85;margin:0 0 16px">Matériel, animateurs professionnels au micro (dont des personnalités connues de l'île), sonorisation, logistique, tentes, traiteur et coordination du jour J : tout est compris. Vous n'avez qu'un interlocuteur, et une équipe qui a déjà orchestré ce type de journée des dizaines de fois. Team Building 974 est le service cohésion de Pull Up Événements, la grande agence événementielle de La Réunion, notée 4,9/5 sur Google et choisie par Crédit Moderne, Crédit Agricole, Ravate Pro, l'INSEE ou la Croix-Rouge.</p>
+<p style="font-size:16px;line-height:1.85;margin:0 0 16px">Et le team building n'est pas qu'un outil interne : c'est aussi le cœur d'un incentive réussi — la journée de récompense qui motive plus qu'une prime — et c'est aussi un puissant levier B2B (business to business) — invitez vos clients et partenaires professionnels à une journée de défis partagés, et vos relations commerciales changent de dimension.</p>
 <p style="font-size:16px;line-height:1.85;margin:0">Envie d'un team building dont vos équipes parleront encore dans six mois ? Nous établissons un devis gratuit et personnalisé sous 24 heures, partout à La Réunion.</p>
 </div></section>
 
@@ -1352,6 +1353,26 @@ document.addEventListener('click',function(e){
   }
 })();
 </script>
+<style id="rb-css">
+/* ===== INSPIRATION REACTBITS.DEV — reflet brillant sur le grand titre (Shiny Text) =====
+   Copie du titre en un seul bloc posée par-dessus : le reflet n'existe que dans les lettres,
+   jamais de rectangle sur le fond, jamais de decoupe mot a mot. */
+.hero h1{position:relative}
+.hero h1 .rb-shine{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 44%,rgba(255,201,60,.95) 50%,transparent 56%) no-repeat;background-size:240% 100%;background-position:200% 0;-webkit-background-clip:text;background-clip:text;animation:rbShine 6.5s ease-in-out 2.4s infinite}
+.hero h1 .rb-shine,.hero h1 .rb-shine *{color:transparent!important;-webkit-text-fill-color:transparent!important;text-shadow:none!important;-webkit-text-stroke:0!important}
+.hero h1 .rb-shine *{background:none!important;animation:none!important}
+@keyframes rbShine{0%{background-position:200% 0}45%,100%{background-position:-100% 0}}
+@media(prefers-reduced-motion:reduce){.hero h1 .rb-shine{display:none}}
+/* fin reactbits */
+</style>
+<script id="rb-js">
+(function(){ if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var h1 = document.querySelector('.hero h1'); if (!h1 || h1.querySelector('.rb-shine')) return;
+  var copie = document.createElement('span'); copie.className = 'rb-shine'; copie.setAttribute('aria-hidden','true');
+  copie.innerHTML = "Team<br>building <span class=\"creux\">974</span><br><span class=\"corail\">Soudez vos équipes</span>";
+  h1.appendChild(copie);
+})();
+</script>
 <script src="/suivi.js" defer></script>
 </body>
-</html> Et le team building n'est pas qu'un outil interne : c'est aussi le cœur d'un incentive réussi — la journée de récompense qui motive plus qu'une prime — et c'est aussi un puissant levier B2B (business to business) — invitez vos clients et partenaires professionnels à une journée de défis partagés, et vos relations commerciales changent de dimension.
+</html>
