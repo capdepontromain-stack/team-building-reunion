@@ -618,6 +618,9 @@ figure figcaption{transition:color .2s ease}
     <p class="sub" style="text-align:center;margin-left:auto;margin-right:auto">Le plus rapide : appelez-nous au <a href="tel:+262693817882"><b>06 93 81 78 82</b></a>. Sinon, ce formulaire :</p>
     <div class="devisbox">
     <form name="devis-teambuilding" id="form-devis">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <input type="hidden" name="source_page" value="">
+      <input type="hidden" name="site" value="teambuilding974.re">
       <label for="nom">Votre nom / société</label>
       <input id="nom" name="nom" required>
       <label for="tel">Téléphone</label>
@@ -634,7 +637,7 @@ figure figcaption{transition:color .2s ease}
       </select>
       <label for="participants">Nombre de participants</label>
       <input id="participants" name="participants" type="number" min="1" inputmode="numeric" placeholder="Ex : 25">
-      <label for="date">Date souhaitée</label>
+      <label for="date">Date de l'événement</label>
       <input id="date" name="date" placeholder="Ex : 12/10/2026 ou « à définir »">
       <label for="lieu">Lieu</label>
       <input id="lieu" name="lieu" placeholder="Ex : Saint-Gilles, nos locaux, à définir…">
@@ -798,7 +801,7 @@ function pisterEvenement(nom, params){
 
 /* Conversion « demande de devis » envoyée à Google Ads */
 function pisterConversionDevis(){
-  pisterEvenement('demande_devis', { source: 'teambuilding974' });
+  if (!window.__puDevisEnvoye) { window.__puDevisEnvoye = true; pisterEvenement('devis_envoye', { site: 'teambuilding974', prestation: (function(){ try { var el = document.querySelector('#form-devis [name=\"type\"]'); return el ? el.value : ''; } catch (err) { return ''; } })(), source_page: location.pathname }); }
   if (typeof gtag === 'function' && SUIVI.ADS_DEVIS) {
     gtag('event', 'conversion', { send_to: SUIVI.ADS_DEVIS });
   }
@@ -806,8 +809,7 @@ function pisterConversionDevis(){
 
 /* Clics sur les numéros de téléphone = appels potentiels (autre conversion clé) */
 document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
-  a.addEventListener('click', function(){
-    pisterEvenement('clic_telephone', { source: 'teambuilding974' });
+  a.addEventListener('click', function(ev){ if (ev && ev.__puAppel) return; if (ev) ev.__puAppel = true; pisterEvenement('appel_clic', { site: 'teambuilding974', page: location.pathname });
   });
 });
 
@@ -821,7 +823,7 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
   var f     = document.getElementById('form-devis');
   var btn   = document.getElementById('btn-devis');
   var etat  = document.getElementById('devis-etat');
-  if (!f) return;
+  if (!f) return; try { if (f.source_page) f.source_page.value = location.pathname; } catch (err) {}
 
   function message(texte, couleur){
     etat.textContent = texte;
@@ -853,7 +855,7 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
   }
 
   f.addEventListener('submit', function(e){
-    e.preventDefault();
+    e.preventDefault(); if (f.botcheck && f.botcheck.checked) { f.reset(); return; }
     btn.disabled = true;
     var libelle = btn.textContent;
     btn.textContent = "Envoi en cours…";
@@ -863,7 +865,7 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
     donnees._subject  = "🎯 Devis team building — " + f.nom.value + " (" + (f.participants.value || "?") + " pers.)";
     donnees._template = "table";
     donnees._captcha  = "false";
-    donnees["Reçu depuis"] = "teambuilding974.re";
+    donnees["Reçu depuis"] = "teambuilding974.re"; donnees.source_page = (f.source_page && f.source_page.value) || location.pathname; donnees.site = "teambuilding974.re"; donnees.botcheck = false;
 
     /* Canaux essayés dans l'ordre jusqu'à ce que l'un aboutisse :
        1. le relais de pullup.re, qui remet la demande à contact@pullup.re ;
@@ -936,14 +938,14 @@ document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
     .then(function(){
       f.reset();
       btn.textContent = "Demande envoyée ✓";
-      message("Merci ! Votre demande est bien arrivée. Nous revenons vers vous sous 24 h — pour aller plus vite, appelez le 06 93 81 78 82.", "#0b3c49");
+      message("Merci ! Votre demande est bien arrivée. Nous revenons vers vous sous 24 h. Pour aller plus vite, appelez le 06 93 81 78 82.", "#0b3c49");
       pisterConversionDevis();
       if (window.puConfettis) window.puConfettis(btn);
     })
     .catch(function(){
       btn.disabled = false;
       btn.textContent = libelle;
-      message("L'envoi automatique n'a pas fonctionné — nous ouvrons votre messagerie avec la demande pré-remplie. Ou appelez le 06 93 81 78 82.", "#c0392b");
+      message("L'envoi automatique n'a pas fonctionné : nous ouvrons votre messagerie avec la demande pré-remplie. Ou appelez le 06 93 81 78 82.", "#c0392b");
       secoursMessagerie();
     });
   });

@@ -50,7 +50,9 @@ var SITE_PULLUP = "teambuilding974";
       if (!a) return;
       var h = (a.getAttribute('href') || '').toLowerCase();
       if (h.indexOf('tel:') === 0) {
-        gtag('event', 'clic_telephone', { site_pullup: SITE_PULLUP });
+        if (e.__puAppel) return;
+        e.__puAppel = true;
+        gtag('event', 'appel_clic', { site_pullup: SITE_PULLUP, site: SITE_PULLUP, page: location.pathname });
       } else if (h.indexOf('wa.me') > -1 || h.indexOf('whatsapp') > -1) {
         gtag('event', 'clic_whatsapp', { site_pullup: SITE_PULLUP });
       } else if (h.indexOf('mailto:') === 0) {
@@ -58,8 +60,19 @@ var SITE_PULLUP = "teambuilding974";
       }
     });
 
-    document.addEventListener('submit', function () {
-      gtag('event', 'demande_devis', { site_pullup: SITE_PULLUP });
+    document.addEventListener('submit', function (ev) {
+      window.__puDevisEnvoye = true;
+      var prestation = '';
+      try {
+        var el = ev.target && ev.target.querySelector ? ev.target.querySelector('[name="type"]') : null;
+        if (el) prestation = el.value;
+      } catch (err) {}
+      gtag('event', 'devis_envoye', {
+        site_pullup: SITE_PULLUP,
+        site: SITE_PULLUP,
+        prestation: prestation,
+        source_page: location.pathname
+      });
     });
   }
 
