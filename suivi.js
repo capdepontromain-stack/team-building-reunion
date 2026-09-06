@@ -91,7 +91,8 @@ var SITE_PULLUP = "teambuilding974";
       '#pu-cookies button{cursor:pointer;border:0;border-radius:9px;padding:10px 16px;' +
       'font:600 14px system-ui,-apple-system,Segoe UI,sans-serif;flex:1 1 auto}' +
       '#pu-ck-oui{background:#f5c04e;color:#14141d}' +
-      '#pu-ck-non{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}';
+      '#pu-ck-non{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}' +
+      '@media(max-width:760px){#pu-cookies{bottom:78px}}';
     document.head.appendChild(st);
 
     var b = document.createElement('div');

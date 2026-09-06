@@ -207,6 +207,7 @@ h1,h2{letter-spacing:.5px}
 .ctamob{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:95;box-shadow:0 -6px 24px rgba(0,0,0,.25)}
 .ctamob a{flex:1;text-align:center;padding:15px 8px;font-weight:800;text-decoration:none;font-size:15.5px}
 .ctamob .tel1{background:#ff6b4a;color:#132029}
+.ctamob .prix1{background:#ffc93c;color:#132029}
 .ctamob .dev1{background:#132029;color:#fff}
 body{padding-bottom:54px}
 .hauteur{bottom:76px}
@@ -611,6 +612,30 @@ figure figcaption{transition:color .2s ease}
     <details><summary>Que faire s'il pleut, ou si le team building se tient en salle de séminaire ?</summary><p>Trois formats se montent entièrement en intérieur, en moins d'une heure d'installation : le <b>Blind Test Maloya</b> (DJ, animateur au micro et buzzers, playlist maloya, séga, zouk et variété — de 22 à 62 ans tout le monde joue, 15 à 300 personnes), <b>Le Grand Quiz Péi</b> (quiz sur smartphone avec classement projeté en direct et questions personnalisées sur votre entreprise, 15 à 200 personnes) et les <b>Olympiades de couloir</b> (nos ateliers en rotation adaptés à un open space ou une salle de réunion, 10 à 80 personnes). Ce dernier format sert aussi de solution de repli météo sur nos journées plage : si le temps tourne la veille, la journée est maintenue en intérieur.</p></details>
   </div>
 </section>
+
+<!-- pu-preuve : cas client reel avant le formulaire (aucun cas invente) -->
+<style>
+.pu-preuve{max-width:960px;margin:36px auto;padding:0 20px}
+.pu-preuve .pu-pv-c{display:grid;grid-template-columns:320px 1fr;background:#fff;color:#1d242c;border-radius:16px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.18);text-align:left}
+.pu-preuve img{width:100%;height:100%;min-height:100%;object-fit:cover;display:block}
+.pu-preuve .pu-pv-t{padding:26px 28px}
+.pu-preuve .pu-pv-k{margin:0 0 10px;font:800 11px/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:2.6px;text-transform:uppercase;color:#ff6b4a}
+.pu-preuve .pu-pv-x{margin:0;font-size:15.5px;line-height:1.65}
+.pu-preuve .pu-pv-x a{color:#ff6b4a;font-weight:700}
+.pu-preuve .pu-pv-g{margin:14px 0 0;font-size:13.5px;color:#4c565f}
+.pu-preuve .pu-pv-g a{color:#1d242c;font-weight:700}
+@media(max-width:700px){.pu-preuve{padding:0 14px}.pu-preuve .pu-pv-c{grid-template-columns:1fr}.pu-preuve img{height:190px;min-height:0}.pu-preuve .pu-pv-t{padding:20px 20px 22px}}
+</style>
+<aside class="pu-preuve">
+  <div class="pu-pv-c">
+    <img src="images/briefing-equipes-team-building-plage.jpg" width="1000" height="750" alt="Briefing des équipes sur la plage lors d'un team building Pull Up à La Réunion" loading="lazy">
+    <div class="pu-pv-t">
+      <p class="pu-pv-k">Ils l&#8217;ont fait avec nous</p>
+      <p class="pu-pv-x">La <b>Mission Intercommunale Ouest (MIO)</b> a vécu son team building Pull Up à Cap Homard, sur la plage de Saint-Gilles : épreuves d&#8217;équipes, défis sportifs et débrief animés par nos équipes. D&#8217;autres cas détaillés (IAE 400 personnes, ADAPÉI 100 personnes) dans <a href="/realisations-team-building-reunion/">nos réalisations</a>.</p>
+      <p class="pu-pv-g">★★★★★ <b>4,9/5</b> sur Google : <a href="https://g.page/r/CYZGysYZgL8iEBM" target="_blank" rel="noopener"><b class="pu-nb-avis">111 avis</b> publics</a>, vérifiables en un clic.</p>
+    </div>
+  </div>
+</aside>
 
 <section id="devis" style="background:var(--sable)">
   <div class="wrap">
@@ -1071,7 +1096,7 @@ document.addEventListener('click',function(e){
   addEventListener('scroll', function(){ bt.classList.toggle('on', scrollY > 900); }, {passive:true});
   /* Barre d'appel mobile */
   var cb = document.createElement('div'); cb.className='ctamob';
-  cb.innerHTML = '<a class="tel1" href="tel:+262693817882">📞 Appeler</a><a class="dev1" href="#devis">Devis 24 h</a>';
+  cb.innerHTML = '<a class="tel1" href="tel:+262693817882">📞 Appeler</a><a class="prix1" href="/prix-team-building-reunion/">💶 Prix</a><a class="dev1" href="#devis">Devis 24 h</a>';
   document.body.appendChild(cb);
 })();
 </script>
