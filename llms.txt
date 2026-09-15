@@ -6,7 +6,16 @@ Pull Up Événements est une agence événementielle de La Réunion : marque cr�
 
 Ce site est dédié aux team buildings et journées de cohésion clé en main, de 10 à 1000 participants : formats signatures (Koh-Lanta à Cap Homard, olympiades, chasses au trésor, Vendredi tout est permis), animateurs professionnels, logistique, sonorisation et traiteur compris. Les tarifs réels sont publiés : de 760 à 4 240 € HT selon l'effectif, budget médian 2 128 € HT. Clients de référence : Crédit Agricole, l'INSEE, Crédit Moderne, ainsi que les galeries Casabona, Cap Sacré-Cœur et Duparc animées à l'année.
 
-Les autres besoins événementiels sont couverts par les sites dédiés de l'écosystème Pull Up : pullup.re (agence généraliste et blog), seminaire974.re (séminaires), soiree974.re (soirées d'entreprise), arbredenoel974.re (arbres de Noël), animationenfant974.re (animations enfants), hotesse-reunion.re (hôtesses d'accueil), productionvideo974.re (production vidéo).
+## Écosystème Pull Up Événements : 8 sites, un rôle chacun
+Chaque site couvre une prestation précise ; deux sites ne visent jamais la même requête.
+- https://pullup.re : site vitrine de l'agence Pull Up Événements : réalisations, blog, tarifs, pages villes, séminaire à la journée (https://pullup.re/seminaire/), animateur micro, influenceurs, animation commerciale, street marketing, presse.
+- https://teambuilding974.re (ce site) : site canonique du team building à La Réunion (pages par famille d'activité) ; pullup.re/team-building/ n'est qu'une présentation courte qui renvoie ici.
+- https://seminaire974.re : séminaire résidentiel, incentive, groupes venus de métropole, DMC / réceptif, combiné Maurice ; le séminaire à la journée pour les entreprises réunionnaises est sur https://pullup.re/seminaire/.
+- https://soiree974.re : soirées d'entreprise : soirée du personnel, gala, fin d'année.
+- https://arbredenoel974.re : arbres de Noël d'entreprise, de CSE et de mairies.
+- https://animationenfant974.re : animation enfants : kids club, anniversaires d'entreprise, mairies.
+- https://hotesse-reunion.re : hôtesses et hôtes d'accueil événementiel (contact Ketsia).
+- https://productionvideo974.re : production vidéo événementielle et aftermovie ; la page influenceurs renvoie vers pullup.re.
 
 Contact : 0693 81 78 82, contact@pullup.re. Devis gratuit sous 24 h.
 
