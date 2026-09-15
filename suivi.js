@@ -52,11 +52,11 @@ var SITE_PULLUP = "teambuilding974";
       if (h.indexOf('tel:') === 0) {
         if (e.__puAppel) return;
         e.__puAppel = true;
-        gtag('event', 'appel_clic', { site_pullup: SITE_PULLUP, site: SITE_PULLUP, page: location.pathname });
+        gtag('event', 'click_tel', { site_pullup: SITE_PULLUP, site: SITE_PULLUP, page: location.pathname });
       } else if (h.indexOf('wa.me') > -1 || h.indexOf('whatsapp') > -1) {
-        gtag('event', 'clic_whatsapp', { site_pullup: SITE_PULLUP });
+        gtag('event', 'click_whatsapp', { site_pullup: SITE_PULLUP, page: location.pathname });
       } else if (h.indexOf('mailto:') === 0) {
-        gtag('event', 'clic_email', { site_pullup: SITE_PULLUP });
+        gtag('event', 'click_mail', { site_pullup: SITE_PULLUP, page: location.pathname });
       }
     });
 
@@ -64,13 +64,17 @@ var SITE_PULLUP = "teambuilding974";
       window.__puDevisEnvoye = true;
       var prestation = '';
       try {
-        var el = ev.target && ev.target.querySelector ? ev.target.querySelector('[name="type"]') : null;
+        var el = ev.target && ev.target.querySelector ? ev.target.querySelector('[name="type"],[name="prestation"],[name="formule"],[name="Prestation"]') : null;
         if (el) prestation = el.value;
       } catch (err) {}
-      gtag('event', 'devis_envoye', {
+      var connu = '';
+      try { var c = ev.target.querySelector('[name="Comment nous avez-vous connus"]'); if (c) connu = c.value; } catch (err2) {}
+      gtag('event', 'form_submit', {
         site_pullup: SITE_PULLUP,
         site: SITE_PULLUP,
+        form_id: (ev.target && ev.target.id) || 'formulaire',
         prestation: prestation,
+        source_declaree: connu,
         source_page: location.pathname
       });
     });
@@ -123,4 +127,44 @@ var SITE_PULLUP = "teambuilding974";
     if (document.body) bandeau();
     else document.addEventListener('DOMContentLoaded', bandeau);
   }
+})();
+
+/* ── Provenance des demandes (session 40) : remplit des champs cachés dans chaque formulaire.
+   Ce ne sont pas des cookies de suivi : ces valeurs partent avec la demande de devis, rien d'autre. ── */
+(function () {
+  function utm() {
+    try {
+      var p = new URLSearchParams(location.search), out = [];
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid', 'fbclid'].forEach(function (k) {
+        if (p.get(k)) out.push(k + '=' + p.get(k));
+      });
+      return out.join(' ');
+    } catch (e) { return ''; }
+  }
+  function premier(cle, val) {              /* garde la première valeur de la visite */
+    try {
+      var v = sessionStorage.getItem(cle);
+      if (v) return v;
+      if (val) sessionStorage.setItem(cle, val);
+      return val || '';
+    } catch (e) { return val || ''; }
+  }
+  var ref = premier('pu_ref', document.referrer && document.referrer.indexOf(location.host) < 0 ? document.referrer : '');
+  var camp = premier('pu_utm', utm());
+  var entree = premier('pu_entree', location.pathname);
+  function poser(form) {
+    var champs = {
+      "Page d'origine": location.href.split('#')[0],
+      "Page d'entrée sur le site": entree,
+      "Site précédent": ref || 'accès direct ou inconnu',
+      "Campagne UTM": camp || 'aucune'
+    };
+    Object.keys(champs).forEach(function (n) {
+      var i = form.querySelector('input[name="' + n + '"]');
+      if (!i) { i = document.createElement('input'); i.type = 'hidden'; i.name = n; form.appendChild(i); }
+      i.value = champs[n];
+    });
+  }
+  function tous() { var fs = document.querySelectorAll('form'); for (var i = 0; i < fs.length; i++) poser(fs[i]); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', tous); else tous();
 })();
