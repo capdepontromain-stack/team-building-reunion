@@ -294,9 +294,14 @@ footer a{text-decoration:underline}
 <a href="tel:+262693817882"><b>📞 06 93 81 78 82</b></a>
 </div>
 <!-- /pu-trust -->
-<!-- Bandeau saisonnier (30/07/2026) : team building de rentrée -->
+<!-- Bandeau saisonnier daté automatiquement (session A3, 22/09/2026) : 15/09-15/12 fin d'année, 16/12-31/03 kick-off, 01/04-14/09 rentrée ; texte neutre sans JS -->
 <style>.bandeau-saison .bs-court{display:none}@media(max-width:640px){.bandeau-saison .bs-long{display:none}.bandeau-saison .bs-court{display:inline}}</style>
-<a class="bandeau-saison" href="#devis" style="display:block;text-align:center;padding:9px 16px;font-size:14.5px;font-weight:600;line-height:1.45;text-decoration:none;background:var(--ocean);color:var(--sable)">🌊 <b style="color:var(--soleil)">Rentrée 2026 :</b> <span class="bs-long">relancez vos équipes en août-septembre — les dates partent vite, demandez votre devis →</span><span class="bs-court">août-septembre se remplit — devis 24 h →</span></a>
+<a class="bandeau-saison" id="bandeau-saison" href="#devis" style="display:block;text-align:center;padding:9px 16px;font-size:14.5px;font-weight:600;line-height:1.45;text-decoration:none;background:var(--ocean);color:var(--sable)">🌊 <b class="bs-titre" style="color:var(--soleil)">Team building à La Réunion :</b> <span class="bs-long">les dates partent vite, demandez votre devis →</span><span class="bs-court">les dates partent vite, devis 24 h →</span></a>
+<script>(function(){try{var d=new Date(),m=d.getMonth()+1,j=d.getDate(),a=d.getFullYear(),t,l,c;
+if((m===9&&j>=15)||m===10||m===11||(m===12&&j<=15)){t="Fin d'année "+a+" :";l="les dates de décembre partent vite, réservez votre team building →";c="décembre se remplit, devis 24 h →";}
+else if((m===12&&j>=16)||m<=3){var n=(m===12)?a+1:a;t="Kick-off "+n+" :";l="lancez l'année avec vos équipes, demandez votre devis →";c="lancez l'année en équipe, devis 24 h →";}
+else{t="Rentrée :";l="relancez vos équipes, les dates partent vite, demandez votre devis →";c="relancez vos équipes, devis 24 h →";}
+var b=document.getElementById("bandeau-saison");b.querySelector(".bs-titre").textContent=t;b.querySelector(".bs-long").textContent=l;b.querySelector(".bs-court").textContent=c;}catch(e){}})();</script>
 
 <div style="background:var(--encre);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;position:relative;z-index:5">
   <a href="/" style="font-family:'Anton';color:#fff;font-size:19px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;display:inline-block;line-height:1.02">Team Building <em style="color:var(--soleil);font-style:normal">974</em><span style="display:block;text-align:right;font-family:'Caveat',cursive;font-weight:700;text-transform:none;letter-spacing:0;font-size:24px;line-height:.8;color:var(--soleil);margin-top:-1px;transform:rotate(-5deg);transform-origin:right center">by Pull Up</span></a>
