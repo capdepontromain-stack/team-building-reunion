@@ -13,14 +13,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
+/* polices de secours aux métriques ajustées (anti-CLS, vague 6 26/10/2026) */
+@font-face{font-family:"Space Grotesk Secours";src:local("Arial"),local("ArialMT");size-adjust:128.23%;ascent-override:76.74%;descent-override:22.77%;line-gap-override:0%}
+@font-face{font-family:"Anton Secours";src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:95.71%;ascent-override:122.89%;descent-override:34.38%;line-gap-override:0%}
 :root{--ocean:#0b3c49;--corail:#ff6b4a;--sable:#f5efe4;--soleil:#ffc93c;--encre:#132029}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:"Space Grotesk",-apple-system,sans-serif;color:var(--encre);background:var(--sable);line-height:1.7;font-size:16.5px}
-h1,h2,h3{font-family:"Anton",sans-serif;font-weight:400;letter-spacing:.5px}
+body{font-family:"Space Grotesk","Space Grotesk Secours",-apple-system,sans-serif;color:var(--encre);background:var(--sable);line-height:1.7;font-size:16.5px}
+h1,h2,h3{font-family:"Anton","Anton Secours",sans-serif;font-weight:400;letter-spacing:.5px}
 a{color:var(--corail)}
 .wrap{max-width:760px;margin:0 auto;padding:0 24px}
 .topbar{background:var(--encre);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.topbar .logo{font-family:"Anton";color:#fff;font-size:19px;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
+.topbar .logo{font-family:"Anton","Anton Secours";color:#fff;font-size:19px;text-decoration:none;text-transform:uppercase;letter-spacing:1px}
 .topbar .logo em{color:var(--soleil);font-style:normal}
 .topbar nav a{color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px}
 .entete{background:var(--ocean);color:#fff;text-align:center;padding:64px 24px;border-bottom:3px solid var(--encre)}
@@ -36,8 +39,8 @@ article ul,article ol{margin:0 0 18px 22px;color:#2c3843}
 article li{margin-bottom:8px}
 article img{width:100%;border:3px solid var(--encre);box-shadow:7px 7px 0 var(--ocean);margin:26px 0}
 .cta{background:var(--corail);color:#fff;text-align:center;padding:38px 26px;margin-top:50px;border:3px solid var(--encre)}
-.cta .t{font-family:"Anton";font-size:24px;text-transform:uppercase}
-.cta a.tel{font-family:"Anton";font-size:34px;color:var(--encre);background:var(--soleil);padding:3px 18px;display:inline-block;margin:14px 0;text-decoration:none;border:3px solid var(--encre);box-shadow:5px 5px 0 rgba(0,0,0,.3)}
+.cta .t{font-family:"Anton","Anton Secours";font-size:24px;text-transform:uppercase}
+.cta a.tel{font-family:"Anton","Anton Secours";font-size:34px;color:var(--encre);background:var(--soleil);padding:3px 18px;display:inline-block;margin:14px 0;text-decoration:none;border:3px solid var(--encre);box-shadow:5px 5px 0 rgba(0,0,0,.3)}
 .cta .btn{display:inline-block;background:#fff;color:var(--encre);font-weight:700;padding:11px 24px;border:3px solid var(--encre);box-shadow:4px 4px 0 var(--encre);text-decoration:none;font-size:15px}
 footer{background:var(--encre);color:#9fb0b8;text-align:center;padding:34px 20px;font-size:13.5px;border-top:3px solid var(--soleil)}
 footer a{color:var(--soleil)}

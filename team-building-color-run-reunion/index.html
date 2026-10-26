@@ -22,18 +22,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet"></noscript>
 <style>
+/* polices de secours aux métriques ajustées (anti-CLS, vague 6 26/10/2026) */
+@font-face{font-family:"Space Grotesk Secours";src:local("Arial"),local("ArialMT");size-adjust:128.23%;ascent-override:76.74%;descent-override:22.77%;line-gap-override:0%}
+@font-face{font-family:"Anton Secours";src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:95.71%;ascent-override:122.89%;descent-override:34.38%;line-gap-override:0%}
 :root{--ocean:#0b3c49;--ocean2:#0e4f61;--corail:#ff6b4a;--sable:#f5efe4;--soleil:#ffc93c;--encre:#132029;--gris:#5d6b73}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:"Space Grotesk",-apple-system,sans-serif;color:var(--encre);background:var(--sable);line-height:1.72;font-size:16.5px}
-h1,h2,h3,.disp{font-family:"Anton",sans-serif;font-weight:400;letter-spacing:.5px;line-height:1.06}
+body{font-family:"Space Grotesk","Space Grotesk Secours",-apple-system,sans-serif;color:var(--encre);background:var(--sable);line-height:1.72;font-size:16.5px}
+h1,h2,h3,.disp{font-family:"Anton","Anton Secours",sans-serif;font-weight:400;letter-spacing:.5px;line-height:1.06}
 a{color:var(--corail)}
 img{max-width:100%;height:auto;display:block}
 .wrap{max-width:860px;margin:0 auto;padding:0 22px}
 .btn{display:inline-block;background:var(--corail);color:#fff;font-weight:700;padding:15px 30px;border:3px solid var(--encre);box-shadow:5px 5px 0 var(--encre);text-decoration:none;font-size:17px;transition:transform .12s,box-shadow .12s}
 .btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--encre)}
 .topbar{background:var(--encre);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.topbar .lg{font-family:'Anton';color:#fff;font-size:19px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;display:inline-block;line-height:1.02}
+.topbar .lg{font-family:'Anton','Anton Secours';color:#fff;font-size:19px;text-decoration:none;text-transform:uppercase;letter-spacing:1px;display:inline-block;line-height:1.02}
 .topbar .lg em{color:var(--soleil);font-style:normal}
 .topbar .lg span{display:block;text-align:right;font-family:'Caveat',cursive;font-weight:700;text-transform:none;letter-spacing:0;font-size:24px;line-height:.8;color:var(--soleil);margin-top:-1px;transform:rotate(-5deg);transform-origin:right center}
 .topbar nav a{color:var(--soleil);text-decoration:none;font-weight:700;font-size:14px;margin-left:20px}
@@ -64,9 +67,9 @@ article strong{color:var(--ocean)}
 .faq summary{font-weight:700;cursor:pointer;font-size:16.5px;color:var(--ocean)}
 .faq details p{margin:12px 0 0}
 .cta{background:var(--encre);color:#fff;text-align:center;padding:40px 26px;border:3px solid var(--corail);margin:50px 0 10px}
-.cta .gros{font-family:'Anton';font-size:clamp(24px,3.4vw,32px);text-transform:uppercase;margin-bottom:8px}
+.cta .gros{font-family:'Anton','Anton Secours';font-size:clamp(24px,3.4vw,32px);text-transform:uppercase;margin-bottom:8px}
 .cta p{color:#c9d6da;margin-bottom:20px}
-.cta a.tel{font-family:'Anton';font-size:34px;color:var(--soleil);text-decoration:none;display:block;margin-bottom:16px}
+.cta a.tel{font-family:'Anton','Anton Secours';font-size:34px;color:var(--soleil);text-decoration:none;display:block;margin-bottom:16px}
 footer{background:var(--encre);color:#9fb0b6;padding:38px 22px;font-size:14px;text-align:center}
 footer a{color:var(--soleil);text-decoration:none}
 footer p{margin-bottom:10px;max-width:900px;margin-left:auto;margin-right:auto}
@@ -95,10 +98,10 @@ footer p{margin-bottom:10px;max-width:900px;margin-left:auto;margin-right:auto}
 <a href="tel:+262693817882"><b>📞 06 93 81 78 82</b></a>
 </div>
 <!-- /pu-trust -->
-<div class="topbar">
+<header class="topbar">
   <a class="lg" href="/">Team Building <em>974</em><span>by Pull Up</span></a>
   <nav><a href="/">Accueil</a><a href="/activites-team-building-reunion/">Activités</a><a href="/concepts-team-building-reunion/">Concepts</a><a href="/lieux-team-building-reunion/">Lieux</a><a href="/prix-team-building-reunion/">Tarifs</a><a href="/blog/">Le blog</a><a class="tel" href="tel:+262693817882">📞 06 93 81 78 82</a></nav>
-</div>
+</header>
 <div class="bread"><a href="/">Team Building 974</a> › <a href="/activites-team-building-reunion/">Activités</a> › Color run d'entreprise</div>
 <main>
 <header class="entete">
@@ -160,7 +163,7 @@ footer p{margin-bottom:10px;max-width:900px;margin-left:auto;margin-right:auto}
 <p style="margin-top:34px">À voir aussi : <a href="/team-building-koh-lanta-reunion/">le Koh-Lanta Péi</a>, <a href="/team-building-vendredi-tout-est-permis-reunion/">Vendredi tout est permis version entreprise</a>, <a href="/activites-team-building-reunion/">les 17 activités</a> et <a href="/realisations-team-building-reunion/">nos réalisations</a>.</p>
 </div></article>
 </main>
-<footer><p style="font-family:'Anton';font-size:19px;color:#fff">Team Building 974</p><p>Le service team building de <a href="https://pullup.re/">Pull Up Événements</a> — plus de 500 événements depuis la création de la marque en 2017 (société depuis 2022), 4,9/5 sur Google (144 avis).</p><p style="margin-top:6px"><a href="/">Accueil</a> · <a href="/activites-team-building-reunion/">Activités</a> · <a href="/concepts-team-building-reunion/">Concepts</a> · <a href="/prix-team-building-reunion/">Tarifs</a> · <a href="/blog/">Blog</a> · <a href="https://pullup.re/">Pull Up Événements, agence événementielle à La Réunion</a> · <a href="https://g.page/r/CYZGysYZgL8iEBM">⭐ 4,9/5 sur Google</a></p>  <p class="pu-liens-legaux" style="font-size:13px"><a href="/mentions-legales/" style="text-decoration:underline">Mentions légales</a> · <a href="/confidentialite/" style="text-decoration:underline">Politique de confidentialité</a> · <a href="https://www.aleou.fr/xd/team-building-seminaire/la-reunion-974" rel="noopener" target="_blank" style="text-decoration:underline" title="Pull Up Événements, premier référencé sur la page team building La Réunion d’Aleou">Notre fiche sur Aleou</a></p>
+<footer><p style="font-family:'Anton','Anton Secours';font-size:19px;color:#fff">Team Building 974</p><p>Le service team building de <a href="https://pullup.re/">Pull Up Événements</a> — plus de 500 événements depuis la création de la marque en 2017 (société depuis 2022), 4,9/5 sur Google (144 avis).</p><p style="margin-top:6px"><a href="/">Accueil</a> · <a href="/activites-team-building-reunion/">Activités</a> · <a href="/concepts-team-building-reunion/">Concepts</a> · <a href="/prix-team-building-reunion/">Tarifs</a> · <a href="/blog/">Blog</a> · <a href="https://pullup.re/">Pull Up Événements, agence événementielle à La Réunion</a> · <a href="https://g.page/r/CYZGysYZgL8iEBM">⭐ 4,9/5 sur Google</a></p>  <p class="pu-liens-legaux" style="font-size:13px"><a href="/mentions-legales/" style="text-decoration:underline">Mentions légales</a> · <a href="/confidentialite/" style="text-decoration:underline">Politique de confidentialité</a> · <a href="https://www.aleou.fr/xd/team-building-seminaire/la-reunion-974" rel="noopener" target="_blank" style="text-decoration:underline" title="Pull Up Événements, premier référencé sur la page team building La Réunion d’Aleou">Notre fiche sur Aleou</a></p>
 <p class="pu-communes" style="font-size:13px;margin-top:8px">Team building par commune : <a href="/team-building-sainte-marie/">Team building à Sainte-Marie</a> · <a href="/team-building-saint-andre/">Team building à Saint-André</a> · <a href="/team-building-saint-benoit/">Team building à Saint-Benoît</a> · <a href="/team-building-la-possession/">Team building à La Possession</a> · <a href="/team-building-saint-leu/">Team building à Saint-Leu</a> · <a href="/team-building-letang-sale/">Team building à L'Étang-Salé</a> · <a href="/team-building-saint-louis/">Team building à Saint-Louis</a> · <a href="/team-building-le-tampon/">Team building au Tampon</a></p></footer>
 <script src="/suivi.js" defer></script>
 <style id="pu-appel-mobile-css">#pu-appel-mobile{display:none}@media(max-width:767px){body{padding-bottom:calc(52px + env(safe-area-inset-bottom))}#pu-appel-mobile{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:9999;height:calc(52px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom);background:#1c1a17;color:#fff;align-items:center;justify-content:center;gap:10px;font:700 15px/1 -apple-system,Arial,sans-serif;text-decoration:none;box-shadow:0 -2px 10px rgba(0,0,0,.25)}#pu-appel-mobile b{color:#ffbd59}#pu-appel-mobile span{font-weight:400;font-size:12.5px;opacity:.9}}</style><a id="pu-appel-mobile" href="tel:+262693817882" aria-label="Appeler Pull Up Événements au 06 93 81 78 82">📞 <b>06 93 81 78 82</b> <span>· devis en 24 h</span></a>
